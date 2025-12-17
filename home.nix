@@ -35,6 +35,7 @@ in
       "cd"
     ];
     initExtra = ''
+      bind -x '"\C-l": clear'
       set -o vi
       eval "$(fzf --bash)"
       eval "$(zoxide init bash)"

@@ -90,6 +90,8 @@
     ferdium
     spotify-player
     wl-clipboard
+    hypridle
+    hyprlock
   ];
 
   fonts.packages = with pkgs; [
