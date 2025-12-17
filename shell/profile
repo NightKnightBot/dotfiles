@@ -1,0 +1,10 @@
+export XDG_DATA_DIRS="/home/skainswo/.nix-profile/share:$XDG_DATA_DIRS"
+
+# Nix profile path
+if [ -e "$HOME/.nix-profile/etc/profile.d/nix.sh" ]; then
+  . "$HOME/.nix-profile/etc/profile.d/nix.sh"
+fi
+
+export XKB_DEFAULT_LAYOUT=us
+export XKB_DEFAULT_OPTIONS=caps:swapescape
+

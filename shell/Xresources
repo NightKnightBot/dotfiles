@@ -1,0 +1,21 @@
+
+! Xcursor.theme: windows-cursors
+! Xcursor.size: 22
+*.font: xft:JetBrainsMono NF:style=Normal:size=12
+xterm*dynamicColors: true
+xterm*background:    black
+xterm*foreground:    grey
+xterm*saveLines:    35000
+XTerm.vt100.backarrowKey: true
+XTerm.vt100.deleteIsDEL: true
+XTerm*selectToClipboard: true
+! xterm*scrollBar: true
+! xterm*rightScrollBar: true
+
+XTerm*VT100.Translations: #override \
+    Ctrl Shift <Key>J: scroll-forw(5, line) \n\
+    Ctrl Shift <Key>K: scroll-back(5, line) \n\
+    Ctrl Shift <Key>Up: scroll-back(1, page) \n\
+    Ctrl Shift <Key>Down: scroll-forw(1, page) \n\
+    Ctrl Shift <Key>V:  insert-selection(CLIPBOARD) \n\
+    Ctrl Shift <Key>C:        select-end(CLIPBOARD)

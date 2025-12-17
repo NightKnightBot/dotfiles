@@ -1,0 +1,5 @@
+# vim: filetype=neomuttrc
+source /usr/local/share/mutt-wizard/mutt-wizard.muttrc
+source /home/anand/.config/mutt/accounts/anand@heresanandp.in.muttrc
+macro index,pager i1 '<sync-mailbox><enter-command>source /home/anand/.config/mutt/accounts/anand@heresanandp.in.muttrc<enter><change-folder>!<enter>;<check-stats>' "switch to anand@heresanandp.in"
+set header_cache_backend = "lmdb"
