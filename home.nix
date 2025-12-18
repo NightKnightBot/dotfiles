@@ -59,7 +59,7 @@ in
       grep = "grep --color=auto";
       cd = "z";
       cat = "bat";
-      ll = "eza --icons -la";
+      ll = "eza --icons -lha";
       la = "eza --icons -a";
     };
   };
@@ -80,14 +80,11 @@ in
       pkgs.scrcpy
       pkgs.watch
       pkgs.progress
-      pkgs.uv
       pkgs.dysk
       pkgs.glow
       pkgs.termdown
       pkgs.hugo
       pkgs.pfetch
-      pkgs.laravel
-      pkgs.php
       pkgs.flameshot
       pkgs.grim
       pkgs.slurp

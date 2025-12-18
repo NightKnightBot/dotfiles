@@ -70,7 +70,6 @@
     xfce.thunar-volman
     xfce.thunar-archive-plugin
     xfce.thunar-media-tags-plugin
-    javaPackages.compiler.temurin-bin.jdk-25
     python315
     rustup
     brillo

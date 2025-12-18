@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 input_type=$(printf "region\nwindow" | rofi -dmenu)
 case "$input_type" in
   "window")
