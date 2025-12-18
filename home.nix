@@ -61,7 +61,6 @@ in
       cat = "bat";
       ll = "eza --icons -lha";
       la = "eza --icons -a";
-      trash = "trashy";
     };
   };
   home.username = "anand";
@@ -90,6 +89,7 @@ in
       pkgs.grim
       pkgs.slurp
       pkgs.dmenu-wayland
+      pkgs.javaPackages.compiler.temurin-bin.jdk-25
   ];
 
   home.activation.dotfiles = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
