@@ -91,6 +91,7 @@
     wl-clipboard
     hypridle
     hyprlock
+    trashy
   ];
 
   fonts.packages = with pkgs; [

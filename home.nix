@@ -61,6 +61,7 @@ in
       cat = "bat";
       ll = "eza --icons -lha";
       la = "eza --icons -a";
+      trash = "trashy";
     };
   };
   home.username = "anand";
