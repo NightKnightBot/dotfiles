@@ -107,7 +107,7 @@
     nodejs_25
     go
     lazygit
-    libgcc
+    gcc
   ];
 
   fonts.packages = with pkgs; [
