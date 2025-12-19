@@ -1,5 +1,19 @@
 { config, pkgs, ... }:
+let
+  androidSdk = pkgs.androidenv.composeAndroidPackages {
+    platformVersions = [ "35" ];
+    buildToolsVersions = [ "35.0.0" ];
+    platformToolsVersion = "35.0.1";
 
+    includeEmulator = true;
+    includeSources = true;
+
+    includeNDK = true;
+    ndkVersions = [ "28.2.13676358" ];
+
+    cmdLineToolsVersion = "12.0";
+  };
+in
 {
   #### SYSTEM (NixOS) ####
 
@@ -7,49 +21,25 @@
 
   nixpkgs.config.android_sdk.accept_license = true;
 
-  users.users.anand.extraGroups = [ "adbusers" ];
-
-  services.udev.packages = [
-    pkgs.android-udev-rules
+  environment.systemPackages = [
+    androidSdk.androidsdk
   ];
 
+  users.users.anand.extraGroups = [ "adbusers" ];
+
+  environment.variables = {
+    ANDROID_SDK_ROOT = "${androidSdk.androidsdk}/libexec/android-sdk";
+    ANDROID_HOME = "${androidSdk.androidsdk}/libexec/android-sdk";
+  };
   #### USER (Home Manager) ####
 
-  home-manager.users.anand = { pkgs, ... }:
-  let
-    androidSdk = pkgs.androidenv.composeAndroidPackages {
-      platformVersions = [ "35" ];
-      buildToolsVersions = [ "35.0.0" ];
-      platformToolsVersion = "35.0.1";
-      includeEmulator = true;
-      includeSources = true;
-      cmdLineToolsVersion = "12.0";
+  home-manager.users.anand =
+    { pkgs, ... }:
+    {
+      home.packages = [
+        pkgs.flutter
+        pkgs.android-tools
+        androidSdk.emulator
+      ];
     };
-  in
-  {
-    home.packages = [
-      pkgs.flutter
-      pkgs.android-tools
-      androidSdk.androidsdk
-      androidSdk.emulator
-    ];
-
-    home.sessionPath = [
-      "${androidSdk.androidsdk}/libexec/android-sdk/platform-tools"
-      "${androidSdk.androidsdk}/libexec/android-sdk/cmdline-tools/latest/bin"
-    ];
-    
-    home.sessionVariables = {
-      ANDROID_SDK_ROOT =
-        "${androidSdk.androidsdk}/libexec/android-sdk";
-
-      ANDROID_HOME =
-        "${androidSdk.androidsdk}/libexec/android-sdk";
-
-      # This makes Flutter happy even if layout differs
-      ANDROID_SDK_MANAGER =
-        "${androidSdk.androidsdk}/libexec/android-sdk/cmdline-tools/*/bin/sdkmanager";
-    };
-  };
 }
-
