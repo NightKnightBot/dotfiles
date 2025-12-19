@@ -90,6 +90,7 @@ in
       pkgs.slurp
       pkgs.dmenu-wayland
       pkgs.javaPackages.compiler.temurin-bin.jdk-25
+      pkgs.libgcc
   ];
 
   home.activation.dotfiles = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
