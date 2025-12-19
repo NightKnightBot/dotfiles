@@ -23,6 +23,11 @@
 
   nixpkgs.config.allowUnfree = true;
 
+  services.mysql = {
+    enable = true;
+    package = pkgs.percona-server;
+  };
+
   services.displayManager.ly = {
     enable = true;
     settings = {
@@ -92,7 +97,12 @@
     wl-clipboard
     hypridle
     hyprlock
+    hyprshot
     trashy
+    php
+    phpPackages.composer
+    nodejs_25
+
   ];
 
   fonts.packages = with pkgs; [
