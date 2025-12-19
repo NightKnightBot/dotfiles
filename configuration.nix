@@ -54,6 +54,9 @@
   };
 
   environment.systemPackages = with pkgs; [
+    udev
+    unzip
+    zip
     vim
     neovim
     tree-sitter

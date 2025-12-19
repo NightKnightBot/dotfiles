@@ -14,6 +14,7 @@
       pkgs.emmet-ls
       pkgs.cmake-language-server
       pkgs.phpactor
+      pkgs.intelephense
     ];
   };
 }

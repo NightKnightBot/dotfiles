@@ -9,6 +9,9 @@
 
   users.users.anand.extraGroups = [ "adbusers" ];
 
+  services.udev.packages = [
+    pkgs.android-udev-rules
+  ];
 
   #### USER (Home Manager) ####
 
@@ -26,6 +29,7 @@
   {
     home.packages = [
       pkgs.flutter
+      pkgs.android-tools
       androidSdk.androidsdk
       androidSdk.emulator
     ];
