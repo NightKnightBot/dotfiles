@@ -77,7 +77,7 @@
     xfce.thunar-archive-plugin
     xfce.thunar-media-tags-plugin
     python315
-    rust
+    rustc
     cargo
     clippy
     rustfmt
