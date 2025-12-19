@@ -77,7 +77,10 @@
     xfce.thunar-archive-plugin
     xfce.thunar-media-tags-plugin
     python315
-    rustup
+    rust
+    cargo
+    clippy
+    rustfmt
     brillo
     gnome.gvfs
     wlr-randr
@@ -102,7 +105,8 @@
     php
     phpPackages.composer
     nodejs_25
-
+    go
+    lazygit
   ];
 
   fonts.packages = with pkgs; [
