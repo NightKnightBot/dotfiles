@@ -95,8 +95,6 @@ add({
   }
 })
 
-vim.lsp.enable({ 'jdtls', 'tinymist', 'clangd', 'emmet_language_server', 'lua_ls', 'neocmake', 'rust_analyzer', 'gopls' })
-
 -- Plugin Setup
 require('mason').setup()
 require('flutter-tools').setup {}

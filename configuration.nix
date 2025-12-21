@@ -54,7 +54,6 @@
   };
 
   environment.systemPackages = with pkgs; [
-    udev
     unzip
     zip
     vim
@@ -79,11 +78,6 @@
     xfce.thunar-volman
     xfce.thunar-archive-plugin
     xfce.thunar-media-tags-plugin
-    python315
-    rustc
-    cargo
-    clippy
-    rustfmt
     brillo
     gnome.gvfs
     wlr-randr
@@ -105,12 +99,7 @@
     hyprlock
     hyprshot
     trashy
-    php
-    phpPackages.composer
-    nodejs_25
-    go
     lazygit
-    gcc
   ];
 
   fonts.packages = with pkgs; [
@@ -128,6 +117,8 @@
 
   virtualisation.libvirtd.enable = true;
   programs.virt-manager.enable = true;
+
+  programs.nix-ld.enable = true;
 
   programs.gnupg.agent = {
     enable = true;

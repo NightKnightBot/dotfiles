@@ -1,4 +1,9 @@
-{ config, pkgs, lib, ... }:
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}:
 let
   dotfiles = "${config.home.homeDirectory}/dots/";
   create_symlink = path: config.lib.file.mkOutOfStoreSymlink path;
@@ -67,29 +72,28 @@ in
   home.homeDirectory = "/home/anand";
   home.stateVersion = "25.11"; # NEVER CHANGE THIS
   home.packages = [
-      pkgs.mpv
-      pkgs.dunst
-      pkgs.fzf
-      pkgs.nb
-      pkgs.eza
-      pkgs.yt-dlp
-      pkgs.mpv
-      pkgs.cmake
-      pkgs.copyq
-      pkgs.fastfetch
-      pkgs.scrcpy
-      pkgs.watch
-      pkgs.progress
-      pkgs.dysk
-      pkgs.glow
-      pkgs.termdown
-      pkgs.hugo
-      pkgs.pfetch
-      pkgs.flameshot
-      pkgs.grim
-      pkgs.slurp
-      pkgs.dmenu-wayland
-      pkgs.javaPackages.compiler.temurin-bin.jdk-25
+    pkgs.mpv
+    pkgs.dunst
+    pkgs.fzf
+    pkgs.nb
+    pkgs.eza
+    pkgs.yt-dlp
+    pkgs.mpv
+    pkgs.cmake
+    pkgs.copyq
+    pkgs.fastfetch
+    pkgs.scrcpy
+    pkgs.watch
+    pkgs.progress
+    pkgs.dysk
+    pkgs.glow
+    pkgs.termdown
+    pkgs.hugo
+    pkgs.pfetch
+    pkgs.flameshot
+    pkgs.grim
+    pkgs.slurp
+    pkgs.dmenu-wayland
   ];
 
   home.activation.dotfiles = lib.hm.dag.entryAfter [ "writeBoundary" ] ''

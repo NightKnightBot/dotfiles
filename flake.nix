@@ -46,7 +46,6 @@
           ./configuration.nix
           ./modules/home-manager.nix
           # ./modules/mango.nix
-          ./modules/android.nix
           ./modules/lsp.nix
           auto-cpufreq.nixosModules.default
         ];
