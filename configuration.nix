@@ -1,14 +1,18 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
 {
-  imports =
-    [
-      ./hardware-configuration.nix
-    ];
+  imports = [
+    ./hardware-configuration.nix
+  ];
 
-	boot.loader.systemd-boot.enable = true;
-	boot.loader.systemd-boot.configurationLimit = 5;
-	boot.loader.efi.canTouchEfiVariables = true;
+  boot.loader.systemd-boot.enable = true;
+  boot.loader.systemd-boot.configurationLimit = 5;
+  boot.loader.efi.canTouchEfiVariables = true;
 
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
@@ -23,6 +27,10 @@
 
   nixpkgs.config.allowUnfree = true;
 
+  services.logind.settings.Login = {
+    HandlePowerKey = "ignore";
+    LidSwitchIgnoreInhibited = "no";
+  };
   services.mysql = {
     enable = true;
     package = pkgs.percona-server;
@@ -47,7 +55,17 @@
 
   users.users.anand = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "network" "input" "uinput" "video" "adbusers" "libvirtd" "kvm" "docker" ];
+    extraGroups = [
+      "wheel"
+      "network"
+      "input"
+      "uinput"
+      "video"
+      "adbusers"
+      "libvirtd"
+      "kvm"
+      "docker"
+    ];
     packages = with pkgs; [
       tree
     ];
@@ -60,9 +78,9 @@
     neovim
     tree-sitter
     wget
-		git
-		kitty
-		tmux
+    git
+    kitty
+    tmux
     ly
     pavucontrol
     waybar
@@ -99,7 +117,6 @@
     hyprlock
     hyprshot
     trashy
-    lazygit
   ];
 
   fonts.packages = with pkgs; [
@@ -109,11 +126,14 @@
   fonts.fontconfig = {
     enable = true;
     defaultFonts = {
-      monospace = ["JetBrainsMono Nerd Font"];
+      monospace = [ "JetBrainsMono Nerd Font" ];
     };
   };
 
-	nix.settings.experimental-features = ["nix-command" "flakes"];
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
 
   virtualisation.libvirtd.enable = true;
   programs.virt-manager.enable = true;
@@ -125,10 +145,10 @@
     enableSSHSupport = true;
   };
 
-	programs.hyprland = {
-		enable = true;
-		xwayland.enable = true;
-	};
+  programs.hyprland = {
+    enable = true;
+    xwayland.enable = true;
+  };
 
   programs.firefox.enable = true;
 
@@ -169,4 +189,3 @@
   system.stateVersion = "25.11"; # Did you read the comment?
 
 }
-

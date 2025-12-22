@@ -94,6 +94,10 @@ in
     pkgs.grim
     pkgs.slurp
     pkgs.dmenu-wayland
+    pkgs.lazysql
+    pkgs.lazygit
+    pkgs.ripgrep-all
+    pkgs.fd
   ];
 
   home.activation.dotfiles = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
