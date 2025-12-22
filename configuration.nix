@@ -23,6 +23,30 @@
 
   networking.networkmanager.enable = true;
 
+  networking.firewall = {
+    enable = true;
+    allowedTCPPorts = [
+      80
+      443
+      22
+      53317
+    ];
+    allowedUDPPorts = [
+      53317
+      5353
+    ];
+    allowedUDPPortRanges = [
+      {
+        from = 4000;
+        to = 4007;
+      }
+      {
+        from = 8000;
+        to = 8010;
+      }
+    ];
+  };
+
   time.timeZone = "Asia/Kolkata";
 
   nixpkgs.config.allowUnfree = true;
@@ -66,12 +90,16 @@
       "kvm"
       "docker"
     ];
-    packages = with pkgs; [
-      tree
-    ];
+  };
+
+  environment.sessionVariables = {
+    NH_FLAKE = "/home/anand/dots/";
   };
 
   environment.systemPackages = with pkgs; [
+    btop
+    nix-output-monitor
+    nvd
     unzip
     zip
     vim
@@ -100,7 +128,6 @@
     gnome.gvfs
     wlr-randr
     bat
-    batsignal
     vlc
     zathura
     localsend
@@ -117,6 +144,7 @@
     hyprlock
     hyprshot
     trashy
+    nh
   ];
 
   fonts.packages = with pkgs; [
