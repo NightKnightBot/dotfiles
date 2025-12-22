@@ -132,7 +132,6 @@
     zathura
     localsend
     docker
-    podman
     kdePackages.kleopatra
     gimp3
     kdePackages.ark
