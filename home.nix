@@ -79,16 +79,13 @@ in
     eza
     yt-dlp
     mpv
-    cmake
     copyq
     fastfetch
-    scrcpy
     watch
     progress
     dysk
     glow
     termdown
-    hugo
     pfetch
     flameshot
     grim
@@ -99,6 +96,7 @@ in
     ripgrep-all
     fd
     imv
+    libreoffice
   ];
 
   xdg.configFile = builtins.mapAttrs (name: subpath: {
