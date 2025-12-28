@@ -135,7 +135,6 @@
     kdePackages.kleopatra
     gimp3
     kdePackages.ark
-    spotifyd
     ferdium
     spotify-player
     wl-clipboard
@@ -170,6 +169,7 @@
   programs.gnupg.agent = {
     enable = true;
     enableSSHSupport = true;
+    pinentryPackage = pkgs.pinentry-curses;
   };
 
   programs.hyprland = {
@@ -192,6 +192,15 @@
   };
 
   services.openssh.enable = true;
+  services.spotifyd = {
+    enable = true;
+    settings = {
+      global = {
+        username = "";
+        password = "";
+      };
+    };
+  };
 
   services.xserver.xkb.layout = "us";
   services.xserver.xkb.options = "caps:escape";
