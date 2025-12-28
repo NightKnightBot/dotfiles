@@ -136,7 +136,7 @@
     hypridle
     hyprlock
     hyprshot
-    trashy
+    trash-cli
     nh
   ];
 
@@ -169,7 +169,6 @@
     xwayland.enable = true;
   };
   programs.firefox.enable = true;
-  programs.xfconf.enable = true;
   programs.thunar = {
     enable = true;
     plugins = with pkgs.xfce; [
@@ -178,6 +177,8 @@
       thunar-media-tags-plugin
     ];
   };
+  programs.xfconf.enable = true;
+  programs.dconf.enable = true;
   programs.auto-cpufreq = {
     enable = true;
     settings = {
@@ -197,12 +198,6 @@
   services.openssh.enable = true;
   services.spotifyd = {
     enable = true;
-    settings = {
-      global = {
-        username = "";
-        password = "";
-      };
-    };
   };
 
   services.xserver.xkb.layout = "us";

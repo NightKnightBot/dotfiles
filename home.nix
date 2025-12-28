@@ -101,15 +101,6 @@ in
     imv
   ];
 
-  home.activation.dotfiles = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
-    ln -sf ${config.home.homeDirectory}/dots/shell/zshrc ${config.home.homeDirectory}/.zshrc
-    ln -sf ${config.home.homeDirectory}/dots/shell/bashrc ${config.home.homeDirectory}/.bashrc
-    ln -sf ${config.home.homeDirectory}/dots/shell/profile ${config.home.homeDirectory}/.profile
-    ln -sf ${config.home.homeDirectory}/dots/shell/bash_profile ${config.home.homeDirectory}/.bash_profile
-    ln -sf ${config.home.homeDirectory}/dots/shell/starship.toml ${config.home.homeDirectory}/.config/starship.toml
-    ln -sf ${config.home.homeDirectory}/dots/shell/Xresources ${config.home.homeDirectory}/.Xresources
-  '';
-
   xdg.configFile = builtins.mapAttrs (name: subpath: {
     source = create_symlink "${dotfiles}/${subpath}";
     recursive = true;
@@ -118,4 +109,17 @@ in
   home.sessionVariables = {
     EDITOR = "nvim";
   };
+
+  gtk = {
+    enable = true;
+    iconTheme = {
+      name = "Papirus-Dark";
+      package = pkgs.papirus-icon-theme;
+    };
+    theme = lib.mkForce {
+      name = "Nightfox-Dark";
+      package = pkgs.nightfox-gtk-theme;
+    };
+  };
+
 }
