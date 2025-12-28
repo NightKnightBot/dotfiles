@@ -120,12 +120,7 @@
     swww
     networkmanagerapplet
     zoxide
-    xfce.thunar
-    xfce.thunar-volman
-    xfce.thunar-archive-plugin
-    xfce.thunar-media-tags-plugin
     brillo
-    gnome.gvfs
     wlr-randr
     bat
     vlc
@@ -163,34 +158,42 @@
 
   virtualisation.libvirtd.enable = true;
   programs.virt-manager.enable = true;
-
   programs.nix-ld.enable = true;
-
   programs.gnupg.agent = {
     enable = true;
     enableSSHSupport = true;
     pinentryPackage = pkgs.pinentry-curses;
   };
-
   programs.hyprland = {
     enable = true;
     xwayland.enable = true;
   };
-
   programs.firefox.enable = true;
-
-  programs.auto-cpufreq.enable = true;
-  programs.auto-cpufreq.settings = {
-    charger = {
-      governer = "performance";
-      turbo = "auto";
-    };
-    battery = {
-      governer = "powersave";
-      turbo = "auto";
+  programs.xfconf.enable = true;
+  programs.thunar = {
+    enable = true;
+    plugins = with pkgs.xfce; [
+      thunar-volman
+      thunar-archive-plugin
+      thunar-media-tags-plugin
+    ];
+  };
+  programs.auto-cpufreq = {
+    enable = true;
+    settings = {
+      charger = {
+        governer = "performance";
+        turbo = "auto";
+      };
+      battery = {
+        governer = "powersave";
+        turbo = "auto";
+      };
     };
   };
 
+  services.gvfs.enable = true;
+  services.tumbler.enable = true;
   services.openssh.enable = true;
   services.spotifyd = {
     enable = true;

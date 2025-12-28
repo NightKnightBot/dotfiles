@@ -71,33 +71,34 @@ in
   home.username = "anand";
   home.homeDirectory = "/home/anand";
   home.stateVersion = "25.11"; # NEVER CHANGE THIS
-  home.packages = [
-    pkgs.mpv
-    pkgs.dunst
-    pkgs.fzf
-    pkgs.nb
-    pkgs.eza
-    pkgs.yt-dlp
-    pkgs.mpv
-    pkgs.cmake
-    pkgs.copyq
-    pkgs.fastfetch
-    pkgs.scrcpy
-    pkgs.watch
-    pkgs.progress
-    pkgs.dysk
-    pkgs.glow
-    pkgs.termdown
-    pkgs.hugo
-    pkgs.pfetch
-    pkgs.flameshot
-    pkgs.grim
-    pkgs.slurp
-    pkgs.dmenu-wayland
-    pkgs.lazysql
-    pkgs.lazygit
-    pkgs.ripgrep-all
-    pkgs.fd
+  home.packages = with pkgs; [
+    mpv
+    dunst
+    fzf
+    nb
+    eza
+    yt-dlp
+    mpv
+    cmake
+    copyq
+    fastfetch
+    scrcpy
+    watch
+    progress
+    dysk
+    glow
+    termdown
+    hugo
+    pfetch
+    flameshot
+    grim
+    slurp
+    dmenu-wayland
+    lazysql
+    lazygit
+    ripgrep-all
+    fd
+    imv
   ];
 
   home.activation.dotfiles = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
