@@ -97,6 +97,7 @@ in
     fd
     imv
     libreoffice
+    godot
   ];
 
   xdg.configFile = builtins.mapAttrs (name: subpath: {

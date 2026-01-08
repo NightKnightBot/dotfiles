@@ -112,7 +112,6 @@
     ly
     pavucontrol
     waybar
-    polybar
     pass
     rofi
     rofimoji
@@ -162,7 +161,7 @@
   programs.gnupg.agent = {
     enable = true;
     enableSSHSupport = true;
-    pinentryPackage = pkgs.pinentry-curses;
+    pinentryPackage = pkgs.pinentry-gnome3;
   };
   programs.hyprland = {
     enable = true;
@@ -171,7 +170,7 @@
   programs.firefox.enable = true;
   programs.thunar = {
     enable = true;
-    plugins = with pkgs.xfce; [
+    plugins = with pkgs; [
       thunar-volman
       thunar-archive-plugin
       thunar-media-tags-plugin
@@ -193,6 +192,8 @@
     };
   };
 
+  services.power-profiles-daemon.enable = false;
+  services.desktopManager.cosmic.enable = true;
   services.gvfs.enable = true;
   services.tumbler.enable = true;
   services.openssh.enable = true;
