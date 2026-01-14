@@ -72,9 +72,6 @@ return {
     'configure.ac', -- AutoTools
     '.git',
   },
-  init_options = {
-    fallbackFlags = { '--std=c++23' }
-  },
   capabilities = {
     textDocument = {
       completion = {

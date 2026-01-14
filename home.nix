@@ -98,12 +98,22 @@ in
     imv
     libreoffice
     godot
+    mgba
   ];
 
   xdg.configFile = builtins.mapAttrs (name: subpath: {
     source = create_symlink "${dotfiles}/${subpath}";
     recursive = true;
   }) configs;
+
+  xdg.terminal-exec = {
+    enable = true;
+    settings = {
+      default = [
+        "org.wezfurlong.wezterm.desktop"
+      ];
+    };
+  };
 
   home.sessionVariables = {
     EDITOR = "nvim";
