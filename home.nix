@@ -99,6 +99,8 @@ in
     libreoffice
     godot
     mgba
+    unrar
+    chrome
   ];
 
   xdg.configFile = builtins.mapAttrs (name: subpath: {
