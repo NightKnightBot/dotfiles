@@ -9,8 +9,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    mango = {
-      url = "github:DreamMaoMao/mango";
+    mangowc = {
+      url = "github:DreamMaoMao/mangowc";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -25,10 +25,11 @@
       nixpkgs,
       home-manager,
       auto-cpufreq,
-      mango,
+      mangowc,
       ...
-    }:
+    }@inputs:
     let
+      inherit (nixpkgs) lib;
       system = "x86_64-linux";
       pkgs = import nixpkgs {
         inherit system;
@@ -40,13 +41,20 @@
     {
       nixosConfigurations.anand-mini = nixpkgs.lib.nixosSystem {
         specialArgs = {
-          inherit home-manager mango;
+          inherit home-manager mangowc;
         };
         modules = [
           ./configuration.nix
-          ./modules/home-manager.nix
-          # ./modules/mango.nix
-          ./modules/lsp.nix
+          home-manager.nixosModules.home-manager
+          {
+            home-manager = {
+              useGlobalPkgs = true;
+              useUserPackages = true;
+              users.anand = import ./home.nix;
+              backupFileExtension = "hmbackup";
+            };
+          }
+          mangowc.nixosModules.mango
           auto-cpufreq.nixosModules.default
         ];
       };

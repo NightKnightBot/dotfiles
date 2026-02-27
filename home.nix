@@ -93,14 +93,15 @@ in
     dmenu-wayland
     lazysql
     lazygit
-    ripgrep-all
+    ripgrep
     fd
     imv
     libreoffice
     godot
     mgba
     unrar
-    chrome
+    chromium
+    nil
   ];
 
   xdg.configFile = builtins.mapAttrs (name: subpath: {

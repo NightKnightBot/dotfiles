@@ -73,6 +73,7 @@
 
   nixpkgs.config.allowUnfree = true;
 
+  services.tailscale.enable = true;
   services.blueman.enable = true;
   services.logind.settings.Login = {
     HandlePowerKey = "ignore";
@@ -160,6 +161,7 @@
     hyprshot
     trash-cli
     nh
+    mosh
   ];
 
   fonts.packages = with pkgs; [
@@ -183,15 +185,17 @@
   virtualisation.libvirtd.enable = true;
   programs.virt-manager.enable = true;
   programs.nix-ld.enable = true;
+  programs.mango.enable = true;
+  programs.mango.addLoginEntry = true;
   programs.gnupg.agent = {
     enable = true;
     enableSSHSupport = true;
     pinentryPackage = pkgs.pinentry-gnome3;
   };
-  programs.hyprland = {
-    enable = true;
-    xwayland.enable = true;
-  };
+  # programs.hyprland = {
+  #   enable = true;
+  #   xwayland.enable = true;
+  # };
   programs.firefox.enable = true;
   programs.thunar = {
     enable = true;
@@ -218,7 +222,7 @@
   };
 
   services.power-profiles-daemon.enable = false;
-  services.desktopManager.cosmic.enable = true;
+  # services.desktopManager.cosmic.enable = true;
   services.gvfs.enable = true;
   services.tumbler.enable = true;
   services.openssh.enable = true;
