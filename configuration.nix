@@ -73,6 +73,7 @@
 
   nixpkgs.config.allowUnfree = true;
 
+  security.pam.services.swaylock = {};
   services.tailscale.enable = true;
   services.blueman.enable = true;
   services.logind.settings.Login = {
@@ -156,9 +157,8 @@
     ferdium
     spotify-player
     wl-clipboard
-    hypridle
-    hyprlock
-    hyprshot
+    grim
+    slurp
     trash-cli
     nh
     mosh
@@ -192,10 +192,6 @@
     enableSSHSupport = true;
     pinentryPackage = pkgs.pinentry-gnome3;
   };
-  # programs.hyprland = {
-  #   enable = true;
-  #   xwayland.enable = true;
-  # };
   programs.firefox.enable = true;
   programs.thunar = {
     enable = true;

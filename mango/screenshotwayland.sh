@@ -2,10 +2,12 @@
 input_type=$(printf "region\nwindow" | rofi -dmenu)
 case "$input_type" in
   "window")
-    hyprshot -m window --clipboard-only
+    # hyprshot -m window --clipboard-only
+    grim -g "$(slurp)" - | wl-copy
     ;;
   *)
-    hyprshot -m region --clipboard-only
+    # hyprshot -m region --clipboard-only
+    grim -g "$(slurp)" - | wl-copy
     ;;
 esac
 
