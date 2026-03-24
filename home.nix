@@ -28,6 +28,7 @@ let
 in
 {
   programs.swaylock = {
+    package = pkgs.swaylock-effects;
     enable = true;
     settings = {
       font-size = 24;
@@ -38,7 +39,7 @@ in
   services.swayidle =
     let
       # Lock command
-      lock = "${pkgs.swaylock}/bin/swaylock --daemonize";
+      lock = "${pkgs.swaylock}/bin/swaylock --daemonize --image /home/anand/dots/walls/lock.jpeg --clock";
       suspend = "systemctl suspend";
     in
     {
@@ -58,11 +59,11 @@ in
         }
       ];
       events = [
-        # {
-        #   event = "before-sleep";
-        #   # adding duplicated entries for the same event may not work
-        #   command = (display "off") + "; " + lock;
-        # }
+        {
+          event = "before-sleep";
+          # adding duplicated entries for the same event may not work
+          command = lock;
+        }
         # {
         #   event = "after-resume";
         #   command = display "on";

@@ -73,7 +73,7 @@
 
   nixpkgs.config.allowUnfree = true;
 
-  security.pam.services.swaylock = {};
+  security.pam.services.swaylock = { };
   services.tailscale.enable = true;
   services.blueman.enable = true;
   services.logind.settings.Login = {
@@ -186,7 +186,7 @@
   programs.virt-manager.enable = true;
   programs.nix-ld.enable = true;
   programs.mango.enable = true;
-  programs.mango.addLoginEntry = true;
+  # programs.mango.addLoginEntry = true;
   programs.gnupg.agent = {
     enable = true;
     enableSSHSupport = true;
