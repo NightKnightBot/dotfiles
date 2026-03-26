@@ -152,6 +152,7 @@ in
     unrar
     chromium
     nil
+    upower
   ];
 
   xdg.configFile = builtins.mapAttrs (name: subpath: {
