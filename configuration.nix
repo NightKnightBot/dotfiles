@@ -2,6 +2,7 @@
   config,
   lib,
   pkgs,
+  inputs,
   ...
 }:
 
@@ -121,47 +122,48 @@
     NH_FLAKE = "/home/anand/dots/";
   };
 
-  environment.systemPackages = with pkgs; [
-    btop
-    nix-output-monitor
-    nvd
-    unzip
-    zip
-    vim
-    neovim
-    tree-sitter
-    wget
-    git
-    kitty
-    tmux
-    ly
-    pavucontrol
-    waybar
-    pass
-    rofi
-    rofimoji
-    wezterm
-    swww
-    networkmanagerapplet
-    zoxide
-    brillo
-    wlr-randr
-    bat
-    vlc
-    zathura
-    localsend
-    docker
-    kdePackages.kleopatra
-    gimp3
-    kdePackages.ark
-    ferdium
-    spotify-player
-    wl-clipboard
-    grim
-    slurp
-    trash-cli
-    nh
-    mosh
+  environment.systemPackages = [
+    pkgs.btop
+    pkgs.nix-output-monitor
+    pkgs.nvd
+    pkgs.unzip
+    pkgs.zip
+    pkgs.vim
+    pkgs.neovim
+    pkgs.tree-sitter
+    pkgs.wget
+    pkgs.git
+    pkgs.kitty
+    pkgs.tmux
+    pkgs.ly
+    pkgs.pavucontrol
+    pkgs.waybar
+    pkgs.pass
+    pkgs.rofi
+    pkgs.rofimoji
+    pkgs.wezterm
+    pkgs.swww
+    pkgs.networkmanagerapplet
+    pkgs.zoxide
+    pkgs.brillo
+    pkgs.wlr-randr
+    pkgs.bat
+    pkgs.vlc
+    pkgs.zathura
+    pkgs.localsend
+    pkgs.docker
+    pkgs.kdePackages.kleopatra
+    pkgs.gimp3
+    pkgs.kdePackages.ark
+    pkgs.ferdium
+    pkgs.spotify-player
+    pkgs.wl-clipboard
+    pkgs.grim
+    pkgs.slurp
+    pkgs.trash-cli
+    pkgs.nh
+    pkgs.mosh
+    inputs.helium.packages.x86_64-linux.default
   ];
 
   fonts.packages = with pkgs; [

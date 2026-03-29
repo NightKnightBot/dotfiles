@@ -19,6 +19,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    helium = {
+      url = "github:schembriaiden/helium-browser-nix-flake";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
   outputs =
     {
@@ -57,6 +61,9 @@
           mangowc.nixosModules.mango
           auto-cpufreq.nixosModules.default
         ];
+        specialArgs = {
+          inherit inputs;
+        };
       };
     };
 }
