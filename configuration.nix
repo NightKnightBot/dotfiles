@@ -41,6 +41,7 @@
 
   networking.hostName = "anand-mini";
   networking.extraHosts = ''
+    100.88.139.92 homelab
     192.168.1.26  homelab
   '';
 
@@ -141,7 +142,7 @@
     pkgs.pass
     pkgs.rofi
     pkgs.foot
-    pkgs.swww
+    pkgs.awww
     pkgs.networkmanagerapplet
     pkgs.zoxide
     pkgs.wlr-randr
