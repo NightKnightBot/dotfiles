@@ -50,6 +50,7 @@
     enable = true;
     allowedTCPPorts = [
       80
+      8080
       443
       22
       53317
@@ -123,29 +124,26 @@
   };
 
   environment.systemPackages = [
+    pkgs.brightnessctl
     pkgs.btop
     pkgs.nix-output-monitor
     pkgs.nvd
     pkgs.unzip
     pkgs.zip
     pkgs.vim
-    pkgs.neovim
     pkgs.tree-sitter
     pkgs.wget
     pkgs.git
-    pkgs.kitty
     pkgs.tmux
     pkgs.ly
     pkgs.pavucontrol
     pkgs.waybar
     pkgs.pass
     pkgs.rofi
-    pkgs.rofimoji
-    pkgs.wezterm
+    pkgs.foot
     pkgs.swww
     pkgs.networkmanagerapplet
     pkgs.zoxide
-    pkgs.brillo
     pkgs.wlr-randr
     pkgs.bat
     pkgs.vlc
@@ -163,6 +161,7 @@
     pkgs.trash-cli
     pkgs.nh
     pkgs.mosh
+    pkgs.calibre
     inputs.helium.packages.x86_64-linux.default
   ];
 
@@ -188,7 +187,10 @@
   programs.virt-manager.enable = true;
   programs.nix-ld.enable = true;
   programs.mango.enable = true;
-  # programs.mango.addLoginEntry = true;
+  programs.neovim = {
+    enable = true;
+    defaultEditor = true;
+  };
   programs.gnupg.agent = {
     enable = true;
     enableSSHSupport = true;
