@@ -61,21 +61,8 @@ in
       events = [
         {
           event = "before-sleep";
-          # adding duplicated entries for the same event may not work
           command = lock;
         }
-        # {
-        #   event = "after-resume";
-        #   command = display "on";
-        # }
-        # {
-        #   event = "lock";
-        #   command = (display "off") + "; " + lock;
-        # }
-        # {
-        #   event = "unlock";
-        #   command = display "on";
-        # }
       ];
     };
   programs.bash = {
@@ -152,7 +139,7 @@ in
     unrar
     chromium
     nil
-    upower
+    lua-language-server
   ];
 
   xdg.configFile = builtins.mapAttrs (name: subpath: {
