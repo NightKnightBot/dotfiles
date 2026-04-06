@@ -140,6 +140,7 @@ in
     chromium
     nil
     lua-language-server
+    neovide
   ];
 
   xdg.configFile = builtins.mapAttrs (name: subpath: {

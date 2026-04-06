@@ -1,0 +1,4 @@
+require('config.options')
+require('config.pack')
+require('config.lsp')
+require('config.keymap')
