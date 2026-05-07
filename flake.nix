@@ -23,6 +23,11 @@
       url = "github:schembriaiden/helium-browser-nix-flake";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    zen-browser = {
+      url = "github:youwen5/zen-browser-flake";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
   outputs =
     {
@@ -45,7 +50,7 @@
     {
       nixosConfigurations.anand-mini = nixpkgs.lib.nixosSystem {
         specialArgs = {
-          inherit home-manager mangowc;
+          inherit home-manager mangowc inputs;
         };
         modules = [
           ./configuration.nix
@@ -61,9 +66,6 @@
           mangowc.nixosModules.mango
           auto-cpufreq.nixosModules.default
         ];
-        specialArgs = {
-          inherit inputs;
-        };
       };
     };
 }

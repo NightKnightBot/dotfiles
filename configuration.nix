@@ -17,6 +17,12 @@
 
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
+  hardware.graphics = {
+    enable = true;
+    enable32Bit = true;
+  };
+
+  services.xserver.videoDrivers = [ "modesetting" ];
   hardware.bluetooth = {
     enable = true;
     powerOnBoot = true;
@@ -125,6 +131,8 @@
   };
 
   environment.systemPackages = [
+    pkgs.vulkan-tools
+    pkgs.libnotify
     pkgs.brightnessctl
     pkgs.btop
     pkgs.nix-output-monitor
@@ -163,7 +171,15 @@
     pkgs.nh
     pkgs.mosh
     pkgs.calibre
+    pkgs.easyeffects
+    pkgs.prismlauncher
+    pkgs.sshfs
+    pkgs.obs-studio
+    pkgs.mdterm
+    pkgs.heroic
+
     inputs.helium.packages.x86_64-linux.default
+    inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default
   ];
 
   fonts.packages = with pkgs; [
@@ -188,16 +204,17 @@
   programs.virt-manager.enable = true;
   programs.nix-ld.enable = true;
   programs.mango.enable = true;
-  programs.neovim = {
-    enable = true;
-    defaultEditor = true;
-  };
   programs.gnupg.agent = {
     enable = true;
     enableSSHSupport = true;
     pinentryPackage = pkgs.pinentry-gnome3;
   };
-  programs.firefox.enable = true;
+  programs.firefox = {
+    enable = false;
+    policies = {
+      IPProtectionAvailable = true;
+    };
+  };
   programs.thunar = {
     enable = true;
     plugins = with pkgs; [
@@ -223,14 +240,10 @@
   };
 
   services.power-profiles-daemon.enable = false;
-  # services.desktopManager.cosmic.enable = true;
   services.upower.enable = true;
   services.gvfs.enable = true;
   services.tumbler.enable = true;
   services.openssh.enable = true;
-  services.spotifyd = {
-    enable = true;
-  };
 
   services.xserver.xkb.layout = "us";
   services.xserver.xkb.options = "caps:escape";

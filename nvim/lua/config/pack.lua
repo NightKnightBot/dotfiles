@@ -1,15 +1,15 @@
 -- Dependencies
 
 vim.pack.add {
-  -- Laravel.Nvim
-  {
-    src = 'https://github.com/MunifTanjim/nui.nvim',
-    name = 'nui.nvim'
-  },
-  {
-    src = 'https://github.com/nvim-lua/plenary.nvim',
-    name = 'plenary.nvim'
-  },
+  -- -- Laravel.Nvim
+  -- {
+  --   src = 'https://github.com/MunifTanjim/nui.nvim',
+  --   name = 'nui.nvim'
+  -- },
+  -- {
+  --   src = 'https://github.com/nvim-lua/plenary.nvim',
+  --   name = 'plenary.nvim'
+  -- },
 }
 
 -- Plugins
@@ -66,13 +66,17 @@ vim.pack.add {
     src = 'https://github.com/rachartier/tiny-inline-diagnostic.nvim',
     name = 'tiny-inline-diagnostic'
   },
-  {
-    src = 'https://github.com/adibhanna/laravel.nvim',
-    name = 'laravel'
-  },
+  -- {
+  --   src = 'https://github.com/adibhanna/laravel.nvim',
+  --   name = 'laravel'
+  -- },
   {
     src = 'https://github.com/neovim/nvim-lspconfig',
     name = 'lspconfig'
+  },
+  {
+    src = 'https://github.com/saghen/blink.cmp',
+    name = 'blink'
   },
 }
 
@@ -85,5 +89,23 @@ require('mini.completion').setup()
 require('tiny-inline-diagnostic').setup()
 require('toggleterm').setup()
 require('gitsigns').setup()
-require('laravel').setup()
+-- require('laravel').setup()
 require 'treesitter-context'.setup { enable = true }
+require('blink.cmp').setup({
+  keymap = {
+    preset = 'default',
+    ["<C-e>"] = { "accept" },
+  },
+  appearance = {
+    nerd_font_variant = 'mono'
+  },
+  completion = {
+    documentation = { auto_show = false }
+  },
+  sources = {
+    default = { 'lsp', 'path', 'snippets', 'buffer' },
+  },
+  fuzzy = {
+    implementation = "lua"
+  }
+})

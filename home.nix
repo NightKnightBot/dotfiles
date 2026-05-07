@@ -24,6 +24,7 @@ let
     tmux = "tmux";
     polybar = "polybar";
     flameshot = "flameshot";
+    spotify-player = "spotify-player";
   };
 in
 {
@@ -36,17 +37,37 @@ in
       show-failed-attempts = true;
     };
   };
+
+  programs.nix-index.enable = true;
+
+  services.spotifyd = {
+    enable = true;
+    settings = {
+      global = {
+        zeroconf_port = 0;
+        device_name = "NixOS Spotifyd";
+        backend = "alsa"; # ← IMPORTANT for pipewire-alsa
+        bitrate = 320;
+      };
+    };
+  };
+  services.mako = {
+    enable = true;
+    settings = {
+      default-timeout = 5000;
+    };
+  };
   services.swayidle =
     let
-      # Lock command
       lock = "${pkgs.swaylock}/bin/swaylock --daemonize --image /home/anand/dots/walls/lock.jpeg --clock";
       suspend = "systemctl suspend";
     in
     {
       enable = true;
+
       timeouts = [
         {
-          timeout = 290; # in seconds
+          timeout = 290;
           command = "${pkgs.libnotify}/bin/notify-send 'Locking in 10 seconds' -t 10000";
         }
         {
@@ -58,13 +79,14 @@ in
           command = "${pkgs.systemd}/bin/systemctl suspend";
         }
       ];
-      events = [
-        {
-          event = "before-sleep";
-          command = lock;
-        }
-      ];
+
+      events = {
+        before-sleep = lock;
+      };
     };
+
+  programs.emacs.enable = true;
+
   programs.bash = {
     enable = true;
     enableCompletion = true;
@@ -110,7 +132,6 @@ in
   home.stateVersion = "25.11"; # NEVER CHANGE THIS
   home.packages = with pkgs; [
     mpv
-    dunst
     fzf
     nb
     eza
@@ -137,10 +158,12 @@ in
     godot
     mgba
     unrar
-    chromium
     nil
     lua-language-server
     neovide
+    neovim
+    imagemagick
+    yazi
   ];
 
   xdg.configFile = builtins.mapAttrs (name: subpath: {
@@ -171,6 +194,6 @@ in
       name = "Nightfox-Dark";
       package = pkgs.nightfox-gtk-theme;
     };
+    gtk4.theme = null;
   };
-
 }

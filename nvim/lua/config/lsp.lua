@@ -14,10 +14,11 @@ vim.api.nvim_create_autocmd("BufWritePre", {
   callback = function() vim.lsp.buf.format() end,
 })
 
-vim.lsp.enable(
+vim.lsp.enable({
   'lua_ls',
   'basedpyright',
-  'rust-analyzer'
-)
+  'rust-analyzer',
+  'nil_ls'
+})
 
 vim.diagnostic.config({ virtual_text = false })
