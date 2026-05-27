@@ -74,10 +74,6 @@ vim.pack.add {
     src = 'https://github.com/neovim/nvim-lspconfig',
     name = 'lspconfig'
   },
-  {
-    src = 'https://github.com/saghen/blink.cmp',
-    name = 'blink'
-  },
 }
 
 require('mini.surround').setup()
@@ -85,27 +81,8 @@ require('mini.ai').setup()
 require('mini.pick').setup()
 require('mini.move').setup()
 require('mini.files').setup()
-require('mini.completion').setup()
 require('tiny-inline-diagnostic').setup()
 require('toggleterm').setup()
 require('gitsigns').setup()
 -- require('laravel').setup()
 require 'treesitter-context'.setup { enable = true }
-require('blink.cmp').setup({
-  keymap = {
-    preset = 'default',
-    ["<C-e>"] = { "accept" },
-  },
-  appearance = {
-    nerd_font_variant = 'mono'
-  },
-  completion = {
-    documentation = { auto_show = false }
-  },
-  sources = {
-    default = { 'lsp', 'path', 'snippets', 'buffer' },
-  },
-  fuzzy = {
-    implementation = "lua"
-  }
-})

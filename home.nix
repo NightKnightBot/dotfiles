@@ -25,6 +25,7 @@ let
     polybar = "polybar";
     flameshot = "flameshot";
     spotify-player = "spotify-player";
+    zathura = "zathura";
   };
 in
 {
@@ -125,6 +126,7 @@ in
       cat = "bat";
       ll = "eza --icons -lha";
       la = "eza --icons -a";
+      sp = "spotify_player";
     };
   };
   home.username = "anand";
@@ -175,7 +177,7 @@ in
     enable = true;
     settings = {
       default = [
-        "org.wezfurlong.wezterm.desktop"
+        "foot.desktop"
       ];
     };
   };

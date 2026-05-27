@@ -15,15 +15,16 @@ vim.o.undofile = true
 vim.o.smartcase = true
 vim.o.ignorecase = true
 vim.o.scrolloff = 8
-vim.opt.path:append("**")
 vim.o.winborder = 'rounded'
 vim.o.foldmethod = 'expr'
 vim.o.guifont = 'JetBrainsMono Nerd Font:h10'
 vim.o.foldexpr = 'v:lua.vim.lsp.foldexpr()'
+vim.opt.path:append("**")
+vim.opt.completeopt = { "menu", "menuone", "noselect", "popup" }
 
 vim.api.nvim_create_autocmd("TextYankPost", {
   callback = function()
-    vim.highlight.on_yank()
+    vim.hl.on_yank()
   end,
 })
 

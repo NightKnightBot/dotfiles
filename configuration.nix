@@ -82,6 +82,11 @@
 
   nixpkgs.config.allowUnfree = true;
 
+  nix.settings.trusted-users = [
+    "root"
+    "anand"
+  ];
+
   security.pam.services.swaylock = { };
   services.tailscale.enable = true;
   services.blueman.enable = true;
@@ -177,9 +182,13 @@
     pkgs.obs-studio
     pkgs.mdterm
     pkgs.heroic
+    pkgs.file
+    pkgs.bottom
 
     inputs.helium.packages.x86_64-linux.default
     inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default
+    inputs.devenv.packages.${pkgs.stdenv.hostPlatform.system}.devenv
+
   ];
 
   fonts.packages = with pkgs; [
