@@ -1,6 +1,4 @@
 {
-  config,
-  lib,
   pkgs,
   inputs,
   ...
@@ -58,6 +56,7 @@
     allowedTCPPorts = [
       80
       8080
+      9090
       443
       22
       53317
@@ -181,7 +180,6 @@
     pkgs.sshfs
     pkgs.obs-studio
     pkgs.mdterm
-    pkgs.heroic
     pkgs.file
     pkgs.bottom
 
@@ -256,6 +254,12 @@
 
   services.xserver.xkb.layout = "us";
   services.xserver.xkb.options = "caps:escape";
+  services.xserver.windowManager.i3 = {
+    enable = true;
+    extraPackages = with pkgs; [
+      i3status
+    ];
+  };
 
   # This option defines the first version of NixOS you have installed on this particular machine,
   # and is used to maintain compatibility with application data (e.g. databases) created on older NixOS versions.

@@ -166,6 +166,8 @@ in
     neovim
     imagemagick
     yazi
+    cloc
+    jujutsu
   ];
 
   xdg.configFile = builtins.mapAttrs (name: subpath: {
