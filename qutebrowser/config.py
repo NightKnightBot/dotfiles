@@ -24,7 +24,7 @@ c.content.blocking.adblock.lists = [
 c.content.pdfjs = True
 c.content.autoplay = False
 
-c.editor.command = ["wezterm", "-e", "nvim", "{file}", "-c", "normal {line}G{column0}l"]
+c.editor.command = ["alacritty", "-e", "nvim", "{file}", "-c", "normal {line}G{column0}l"]
 
 c.input.insert_mode.auto_load = True
 c.spellcheck.languages = ["en-US"]

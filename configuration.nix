@@ -9,35 +9,33 @@
     ./hardware-configuration.nix
   ];
 
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.systemd-boot.configurationLimit = 5;
-  boot.loader.efi.canTouchEfiVariables = true;
-
-  boot.kernelPackages = pkgs.linuxPackages_latest;
+  boot = {
+    loader = {
+      systemd-boot = {
+        enable = true;
+        configurationLimit = 5;
+      };
+      efi.canTouchEfiVariables = true;
+    };
+    kernelPackages = pkgs.linuxPackages_latest;
+  };
 
   hardware.graphics = {
     enable = true;
     enable32Bit = true;
   };
 
-  services.xserver.videoDrivers = [ "modesetting" ];
+  documentation.dev.enable = true;
+
   hardware.bluetooth = {
-    enable = true;
+    enable = false;
     powerOnBoot = true;
     settings = {
       General = {
-        # Shows battery charge of connected devices on supported
-        # Bluetooth adapters. Defaults to 'false'.
         Experimental = true;
-        # When enabled other devices can connect faster to us, however
-        # the tradeoff is increased power consumption. Defaults to
-        # 'false'.
         FastConnectable = true;
       };
       Policy = {
-        # Enable all controllers when they are found. This includes
-        # adapters present on start as well as adapters that are plugged
-        # in later on. Defaults to 'true'.
         AutoEnable = true;
       };
     };
@@ -49,32 +47,33 @@
     192.168.1.26  homelab
   '';
 
-  networking.networkmanager.enable = true;
-
-  networking.firewall = {
-    enable = true;
-    allowedTCPPorts = [
-      80
-      8080
-      9090
-      443
-      22
-      53317
-    ];
-    allowedUDPPorts = [
-      53317
-      5353
-    ];
-    allowedUDPPortRanges = [
-      {
-        from = 4000;
-        to = 4007;
-      }
-      {
-        from = 8000;
-        to = 8010;
-      }
-    ];
+  networking = {
+    networkmanager.enable = true;
+    firewall = {
+      enable = true;
+      allowedTCPPorts = [
+        80
+        8080
+        9090
+        443
+        22
+        53317
+      ];
+      allowedUDPPorts = [
+        53317
+        5353
+      ];
+      allowedUDPPortRanges = [
+        {
+          from = 4000;
+          to = 4007;
+        }
+        {
+          from = 8000;
+          to = 8010;
+        }
+      ];
+    };
   };
 
   time.timeZone = "Asia/Kolkata";
@@ -85,35 +84,6 @@
     "root"
     "anand"
   ];
-
-  security.pam.services.swaylock = { };
-  services.tailscale.enable = true;
-  services.blueman.enable = true;
-  services.logind.settings.Login = {
-    HandlePowerKey = "ignore";
-    LidSwitchIgnoreInhibited = "no";
-  };
-  services.mysql = {
-    enable = true;
-    package = pkgs.percona-server;
-  };
-
-  services.displayManager.ly = {
-    enable = true;
-    settings = {
-      clock = "%c";
-      bigclock = true;
-    };
-  };
-
-  services.printing.enable = true;
-
-  services.pipewire = {
-    enable = true;
-    pulse.enable = true;
-  };
-
-  services.libinput.enable = true;
 
   users.users.anand = {
     isNormalUser = true;
@@ -134,71 +104,80 @@
     NH_FLAKE = "/home/anand/dots/";
   };
 
-  environment.systemPackages = [
-    pkgs.vulkan-tools
-    pkgs.libnotify
-    pkgs.brightnessctl
-    pkgs.btop
-    pkgs.nix-output-monitor
-    pkgs.nvd
-    pkgs.unzip
-    pkgs.zip
-    pkgs.vim
-    pkgs.tree-sitter
-    pkgs.wget
-    pkgs.git
-    pkgs.tmux
-    pkgs.ly
-    pkgs.pavucontrol
-    pkgs.waybar
-    pkgs.pass
-    pkgs.rofi
-    pkgs.foot
-    pkgs.awww
-    pkgs.networkmanagerapplet
-    pkgs.zoxide
-    pkgs.wlr-randr
-    pkgs.bat
-    pkgs.vlc
-    pkgs.zathura
-    pkgs.localsend
-    pkgs.docker
-    pkgs.kdePackages.kleopatra
-    pkgs.gimp3
-    pkgs.kdePackages.ark
-    pkgs.ferdium
-    pkgs.spotify-player
-    pkgs.wl-clipboard
-    pkgs.grim
-    pkgs.slurp
-    pkgs.trash-cli
-    pkgs.nh
-    pkgs.mosh
-    pkgs.calibre
-    pkgs.easyeffects
-    pkgs.prismlauncher
-    pkgs.sshfs
-    pkgs.obs-studio
-    pkgs.mdterm
-    pkgs.file
-    pkgs.bottom
+  environment.systemPackages = with pkgs; [
+    vulkan-tools
+    libnotify
+    brightnessctl
+    btop
+    nix-output-monitor
+    nvd
+    unzip
+    zip
+    vim
+    tree-sitter
+    wget
+    git
+    tmux
+    ly
+    pavucontrol
+    waybar
+    pass
+    foot
+    awww
+    networkmanagerapplet
+    zoxide
+    wlr-randr
+    bat
+    vlc
+    zathura
+    localsend
+    docker
+    kdePackages.kleopatra
+    gimp3
+    kdePackages.ark
+    ferdium
+    spotify-player
+    wl-clipboard
+    grim
+    slurp
+    trash-cli
+    nh
+    mosh
+    calibre
+    easyeffects
+    prismlauncher
+    sshfs
+    obs-studio
+    mdterm
+    file
+    bottom
+    xauth
+    xdotool
+    xdo
+    xprop
+    xclip
+    man-pages
+    man-pages-posix
+    trayer
+    upower-notify
 
     inputs.helium.packages.x86_64-linux.default
-    inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default
-    inputs.devenv.packages.${pkgs.stdenv.hostPlatform.system}.devenv
-
+    inputs.zen-browser.packages.${stdenv.hostPlatform.system}.default
+    inputs.devenv.packages.${stdenv.hostPlatform.system}.devenv
   ];
 
-  fonts.packages = with pkgs; [
-    nerd-fonts.jetbrains-mono
-    corefonts
-    vista-fonts
-  ];
+  fonts = {
+    packages = with pkgs; [
+      nerd-fonts.jetbrains-mono
+      corefonts
+      vista-fonts
+    ];
 
-  fonts.fontconfig = {
-    enable = true;
-    defaultFonts = {
-      monospace = [ "JetBrainsMono Nerd Font" ];
+    fontconfig = {
+      enable = true;
+      defaultFonts = {
+        monospace = [ "JetBrainsMono Nerd Font" ];
+      };
     };
   };
 
@@ -208,57 +187,134 @@
   ];
 
   virtualisation.libvirtd.enable = true;
-  programs.virt-manager.enable = true;
-  programs.nix-ld.enable = true;
-  programs.mango.enable = true;
-  programs.gnupg.agent = {
-    enable = true;
-    enableSSHSupport = true;
-    pinentryPackage = pkgs.pinentry-gnome3;
-  };
-  programs.firefox = {
-    enable = false;
-    policies = {
-      IPProtectionAvailable = true;
+  programs = {
+    virt-manager.enable = true;
+    nix-ld.enable = true;
+    mango.enable = true;
+    sway = {
+      enable = true;
+      wrapperFeatures.gtk = true;
     };
-  };
-  programs.thunar = {
-    enable = true;
-    plugins = with pkgs; [
-      thunar-volman
-      thunar-archive-plugin
-      thunar-media-tags-plugin
-    ];
-  };
-  programs.xfconf.enable = true;
-  programs.dconf.enable = true;
-  programs.auto-cpufreq = {
-    enable = true;
-    settings = {
-      charger = {
-        governer = "performance";
-        turbo = "auto";
+    gnupg.agent = {
+      enable = true;
+      enableSSHSupport = true;
+      pinentryPackage = pkgs.pinentry-gnome3;
+    };
+    firefox = {
+      enable = false;
+      policies = {
+        IPProtectionAvailable = true;
       };
-      battery = {
-        governer = "powersave";
-        turbo = "auto";
+    };
+    thunar = {
+      enable = true;
+      plugins = with pkgs; [
+        thunar-volman
+        thunar-archive-plugin
+        thunar-media-tags-plugin
+      ];
+    };
+    xfconf.enable = true;
+    dconf.enable = true;
+    auto-cpufreq = {
+      enable = true;
+      settings = {
+        charger = {
+          governer = "performance";
+          turbo = "auto";
+        };
+        battery = {
+          governer = "powersave";
+          turbo = "auto";
+        };
       };
     };
   };
 
-  services.power-profiles-daemon.enable = false;
-  services.upower.enable = true;
-  services.gvfs.enable = true;
-  services.tumbler.enable = true;
-  services.openssh.enable = true;
+  security.pam.services.swaylock = { };
 
-  services.xserver.xkb.layout = "us";
-  services.xserver.xkb.options = "caps:escape";
-  services.xserver.windowManager.i3 = {
-    enable = true;
-    extraPackages = with pkgs; [
-      i3status
-    ];
+  services = {
+    tailscale.enable = true;
+    blueman.enable = true;
+    logind.settings.Login = {
+      HandlePowerKey = "ignore";
+      LidSwitchIgnoreInhibited = "no";
+    };
+    mysql = {
+      enable = false;
+      package = pkgs.percona-server;
+    };
+
+    displayManager.ly = {
+      enable = true;
+      settings = {
+        clock = "%c";
+        bigclock = true;
+      };
+    };
+
+    printing.enable = true;
+
+    pipewire = {
+      enable = true;
+      pulse.enable = true;
+    };
+
+    power-profiles-daemon.enable = false;
+    upower.enable = true;
+    gvfs.enable = true;
+    tumbler.enable = true;
+    openssh.enable = true;
+
+    xserver = {
+      enable = true;
+      xkb.layout = "us";
+      xkb.options = "caps:escape";
+
+      autoRepeatDelay = 200;
+      autoRepeatInterval = 35;
+
+      windowManager = {
+        oxwm.enable = true;
+        i3 = {
+          enable = true;
+          extraPackages = with pkgs; [
+            dmenu
+            i3status
+            dex
+            xss-lock
+            i3lock
+            xdotool
+            xorg.xprop
+            xdo
+            picom
+            alacritty
+            nsxiv
+            pcmanfm
+            dunst
+            waypaper
+            feh
+            qutebrowser
+            libinput-gestures
+            xwallpaper
+            rxvt-unicode-emoji
+            ueberzugpp
+          ];
+        };
+      };
+      videoDrivers = [ "modesetting" ];
+    };
+
+    libinput = {
+      enable = true;
+      touchpad = {
+        tapping = true;
+        naturalScrolling = true;
+        horizontalScrolling = true;
+        scrollMethod = "twofinger";
+        disableWhileTyping = true;
+      };
+    };
   };
 
   # This option defines the first version of NixOS you have installed on this particular machine,

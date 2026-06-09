@@ -7,7 +7,6 @@
 let
   dotfiles = "${config.home.homeDirectory}/dots/";
   create_symlink = path: config.lib.file.mkOutOfStoreSymlink path;
-  programs.home-manager.enable = true;
   configs = {
     nvim = "nvim";
     niri = "niri";
@@ -26,6 +25,12 @@ let
     flameshot = "flameshot";
     spotify-player = "spotify-player";
     zathura = "zathura";
+    i3 = "i3";
+    sway = "i3";
+    alacritty = "alacritty";
+    kitty = "kitty";
+    picom = "picom";
+    oxwm = "oxwm";
   };
 in
 {
@@ -38,16 +43,21 @@ in
       show-failed-attempts = true;
     };
   };
+  programs.rofi = {
+    enable = true;
+    theme = "Paper";
+  };
 
   programs.nix-index.enable = true;
+  programs.home-manager.enable = true;
 
   services.spotifyd = {
     enable = true;
     settings = {
       global = {
-        zeroconf_port = 0;
+        zeroconf_port = 1234;
         device_name = "NixOS Spotifyd";
-        backend = "alsa"; # ← IMPORTANT for pipewire-alsa
+        backend = "alsa";
         bitrate = 320;
       };
     };
@@ -61,7 +71,6 @@ in
   services.swayidle =
     let
       lock = "${pkgs.swaylock}/bin/swaylock --daemonize --image /home/anand/dots/walls/lock.jpeg --clock";
-      suspend = "systemctl suspend";
     in
     {
       enable = true;
@@ -105,19 +114,30 @@ in
       set -o vi
       eval "$(fzf --bash)"
       eval "$(zoxide init bash)"
+      export MANPAGER="nvim +Man!"
+
+      function y() {
+        local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+        command yazi "$@" --cwd-file="$tmp"
+        IFS= read -r -d "" cwd < "$tmp"
+        [ "$cwd" != "$PWD" ] && [ -d "$cwd" ] && builtin cd -- "$cwd"
+        command rm -f -- "$tmp"
+      }
+
       if [ "$TERM" != "dumb" ] || [ -n "$INSIDE_EMACS" ]; then
         PROMPT_COLOR="1;31m"
         ((UID)) && PROMPT_COLOR="1;34m"
         if [ -n "$INSIDE_EMACS" ]; then
           # Emacs term mode doesn't support xterm title escape sequence (\e]0;)
-          PS1="\n\[\033[$PROMPT_COLOR\][\u@\h:\w]\\$\[\033[0m\] "
+          PS1="\n\[\033[$PROMPT_COLOR\][\w]\\$\[\033[0m\] "
         else
-          PS1="\n\[\033[$PROMPT_COLOR\][\[\e]0;\u@\h: \w\a\]\u@\h:\w]\\$\[\033[0m\] "
+          PS1="\n\[\033[$PROMPT_COLOR\][\[\e]0;\w\a\]\w]\\$\[\033[0m\] "
         fi
         if test "$TERM" = "xterm"; then
-          PS1="\[\033]2;\h:\u:\w\007\]$PS1"
+          PS1="\[\033]2;:\w\007\]$PS1"
         fi
       fi
+      clear
     '';
     shellAliases = {
       ls = "eza --icons";
@@ -127,6 +147,7 @@ in
       ll = "eza --icons -lha";
       la = "eza --icons -a";
       sp = "spotify_player";
+      t = "tmux";
     };
   };
   home.username = "anand";
@@ -168,6 +189,12 @@ in
     yazi
     cloc
     jujutsu
+    speedtest-rs
+    qbittorrent
+    playerctl
+    ffmpeg
+    exiftool
+    # kitty
   ];
 
   xdg.configFile = builtins.mapAttrs (name: subpath: {
@@ -179,6 +206,7 @@ in
     enable = true;
     settings = {
       default = [
+        "kitty.desktop"
         "foot.desktop"
       ];
     };
