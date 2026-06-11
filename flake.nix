@@ -51,6 +51,21 @@
       };
     in
     {
+
+      devShells.${system}.suckless = pkgs.mkShell {
+        packages = with pkgs; [
+          pkg-config
+          xorg.libX11
+          xorg.libXft
+          xorg.libXinerama
+          fontconfig
+          freetype
+          harfbuzz
+          gcc
+          gnumake
+        ];
+      };
+
       nixosConfigurations.anand-mini = nixpkgs.lib.nixosSystem {
         specialArgs = {
           inherit home-manager mangowc inputs;
