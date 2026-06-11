@@ -104,6 +104,8 @@
     NH_FLAKE = "/home/anand/dots/";
   };
 
+  environment.localBinInPath = true;
+
   environment.systemPackages = with pkgs; [
     vulkan-tools
     libnotify
@@ -235,11 +237,14 @@
 
   services = {
     tailscale.enable = true;
+
     blueman.enable = true;
+
     logind.settings.Login = {
       HandlePowerKey = "ignore";
       LidSwitchIgnoreInhibited = "no";
     };
+
     mysql = {
       enable = false;
       package = pkgs.percona-server;
@@ -261,9 +266,13 @@
     };
 
     power-profiles-daemon.enable = false;
+
     upower.enable = true;
+
     gvfs.enable = true;
+
     tumbler.enable = true;
+
     openssh.enable = true;
 
     xserver = {

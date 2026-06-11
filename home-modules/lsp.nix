@@ -1,10 +1,6 @@
-{ config, pkgs, ... }:
+{ pkgs, ... }:
 
 {
-  home-manager.users.anand =
-    { pkgs, ... }:
-
-    {
       home.packages = [
         pkgs.nil
         pkgs.tinymist
@@ -13,5 +9,4 @@
         pkgs.emmet-ls
         pkgs.cmake-language-server
       ];
-    };
 }

@@ -5,7 +5,7 @@
   ...
 }:
 let
-  dotfiles = "${config.home.homeDirectory}/dots/";
+  dotfiles = "${config.home.homeDirectory}/dots/configs/";
   create_symlink = path: config.lib.file.mkOutOfStoreSymlink path;
   configs = {
     nvim = "nvim";
@@ -34,6 +34,9 @@ let
   };
 in
 {
+  imports = [
+    ./home-modules/suckless.nix
+  ];
   programs.swaylock = {
     package = pkgs.swaylock-effects;
     enable = true;
@@ -62,15 +65,22 @@ in
       };
     };
   };
+
   services.mako = {
     enable = true;
     settings = {
       default-timeout = 5000;
     };
   };
+
+  services.mpd = {
+    enable = true;
+    musicDirectory = "${config.home.homeDirectory}/Music";
+  };
+
   services.swayidle =
     let
-      lock = "${pkgs.swaylock}/bin/swaylock --daemonize --image /home/anand/dots/walls/lock.jpeg --clock";
+      lock = "${pkgs.swaylock}/bin/swaylock --daemonize --image ${config.home.homeDirectory}/dots/walls/lock.jpeg --clock";
     in
     {
       enable = true;
@@ -94,8 +104,6 @@ in
         before-sleep = lock;
       };
     };
-
-  programs.emacs.enable = true;
 
   programs.bash = {
     enable = true;
@@ -154,6 +162,7 @@ in
   home.homeDirectory = "/home/anand";
   home.stateVersion = "25.11"; # NEVER CHANGE THIS
   home.packages = with pkgs; [
+    rmpc
     mpv
     fzf
     nb
@@ -162,39 +171,41 @@ in
     mpv
     copyq
     fastfetch
-    watch
-    progress
     dysk
-    glow
     termdown
     pfetch
     flameshot
     grim
     slurp
     dmenu-wayland
-    lazysql
-    lazygit
     ripgrep
     fd
     imv
     libreoffice
-    godot
     mgba
     unrar
-    nil
-    lua-language-server
-    neovide
-    neovim
     imagemagick
     yazi
     cloc
     jujutsu
-    speedtest-rs
     qbittorrent
     playerctl
     ffmpeg
     exiftool
-    # kitty
+    picard
+
+    # Programming
+    nil
+    lua-language-server
+    godot
+    neovide
+    neovim
+    python3
+    rustup
+    clang
+    lazysql
+    lazygit
+
   ];
 
   xdg.configFile = builtins.mapAttrs (name: subpath: {

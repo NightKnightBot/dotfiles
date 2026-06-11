@@ -50,3 +50,4 @@ URxvt.keysym.Shift-Control-V: eval:paste_clipboard
 URxvt.keysym.Shift-Control-C: eval:selection_to_clipboard
 URxvt.keysym.Shift-Control-K: command:\033]720;1\007
 URxvt.keysym.Shift-Control-J: command:\033]721;1\007
+URxvt.perl-ext-common: default,pasta
