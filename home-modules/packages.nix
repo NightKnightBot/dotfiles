@@ -1,0 +1,53 @@
+{ pkgs, ... }:
+{
+  home.packages = with pkgs; [
+    rmpc
+    mpv
+    fzf
+    nb
+    eza
+    yt-dlp
+    mpv
+    copyq
+    fastfetch
+    dysk
+    termdown
+    pfetch
+    flameshot
+    ripgrep
+    fd
+    libreoffice
+    mgba
+    unrar
+    imagemagick
+    yazi
+    qbittorrent
+    playerctl
+    ffmpeg
+    exiftool
+    picard
+    htop
+    btop
+    bottom
+    unzip
+    zip
+    tree-sitter
+    wget
+    zoxide
+    bat
+    localsend
+    zathura
+    kdePackages.kleopatra
+    gimp3
+    kdePackages.ark
+    ferdium
+    spotify-player
+    mosh
+    calibre
+    easyeffects
+    prismlauncher
+    obs-studio
+    trayer
+    awww
+  ];
+}

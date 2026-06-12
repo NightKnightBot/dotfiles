@@ -107,52 +107,24 @@
   environment.localBinInPath = true;
 
   environment.systemPackages = with pkgs; [
+    xrandr
     vulkan-tools
-    libnotify
     brightnessctl
-    btop
     nix-output-monitor
     nvd
-    unzip
-    zip
     vim
-    tree-sitter
-    wget
     git
-    tmux
     ly
     pavucontrol
-    waybar
-    pass
-    foot
-    awww
     networkmanagerapplet
-    zoxide
+    pass
+    libnotify
     wlr-randr
-    bat
-    vlc
-    zathura
-    localsend
     docker
-    kdePackages.kleopatra
-    gimp3
-    kdePackages.ark
-    ferdium
-    spotify-player
-    wl-clipboard
-    grim
-    slurp
     trash-cli
     nh
-    mosh
-    calibre
-    easyeffects
-    prismlauncher
     sshfs
-    obs-studio
-    mdterm
     file
-    bottom
     xauth
     xdotool
     xdo
@@ -160,12 +132,11 @@
     xclip
     man-pages
     man-pages-posix
-    trayer
     upower-notify
 
     inputs.helium.packages.x86_64-linux.default
-    inputs.zen-browser.packages.${stdenv.hostPlatform.system}.default
-    inputs.devenv.packages.${stdenv.hostPlatform.system}.devenv
+    # inputs.zen-browser.packages.${stdenv.hostPlatform.system}.default
+    # inputs.devenv.packages.${stdenv.hostPlatform.system}.devenv
   ];
 
   fonts = {

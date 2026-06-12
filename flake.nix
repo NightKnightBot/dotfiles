@@ -4,8 +4,6 @@
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-unstable";
 
-    devenv.url = "github:cachix/devenv/latest";
-
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -25,12 +23,6 @@
       url = "github:schembriaiden/helium-browser-nix-flake";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    zen-browser = {
-      url = "github:youwen5/zen-browser-flake";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
   };
   outputs =
     {

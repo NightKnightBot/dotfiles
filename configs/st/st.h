@@ -20,6 +20,10 @@
 #define TRUECOLOR(r,g,b)	(1 << 24 | (r) << 16 | (g) << 8 | (b))
 #define IS_TRUECOL(x)		(1 << 24 & (x))
 
+#define HEX_TO_INT(c)		((c) >= '0' && (c) <= '9' ? (c) - '0' : \
+				(c) >= 'a' && (c) <= 'f' ? (c) - 'a' + 10 : \
+				(c) >= 'A' && (c) <= 'F' ? (c) - 'A' + 10 : -1)
+
 enum glyph_attribute {
 	ATTR_NULL       = 0,
 	ATTR_BOLD       = 1 << 0,
@@ -86,6 +90,7 @@ void printsel(const Arg *);
 void sendbreak(const Arg *);
 void toggleprinter(const Arg *);
 
+int tisaltscreen(void);
 int tattrset(int);
 void tnew(int, int);
 void tresize(int, int);
@@ -111,6 +116,9 @@ void *xmalloc(size_t);
 void *xrealloc(void *, size_t);
 char *xstrdup(const char *);
 
+void kscrollup(const Arg *arg);
+void kscrolldown(const Arg *arg);
+
 /* config.h globals */
 extern char *utmp;
 extern char *scroll;
@@ -124,3 +132,4 @@ extern unsigned int tabspaces;
 extern unsigned int defaultfg;
 extern unsigned int defaultbg;
 extern unsigned int defaultcs;
+extern unsigned int scrollback_lines;

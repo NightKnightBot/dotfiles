@@ -6,7 +6,7 @@
  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
  */
 // static char *font = "Liberation Mono:pixelsize=12:antialias=true:autohint=true";
-static char *font = "JetBrainsMono Nerd Font:pixelsize=12:antialias=true:autohint=true";
+static char *font = "JetBrainsMono Nerd Font:pixelsize=14:antialias=true:autohint=true";
 static int borderpx = 2;
 
 /*
@@ -94,35 +94,42 @@ char *termname = "st-256color";
  */
 unsigned int tabspaces = 8;
 
+/*
+ * drag and drop escape characters
+ *
+ * this will add a '\' before any characters specified in the string.
+ */
+char *xdndescchar = " !\"#$&'()*;<>?[\\]^`{|}~";
+
 /* Terminal colors (16 first used in escape sequence) */
 static const char *colorname[] = {
-	/* 8 normal colors */
-	"black",
-	"red3",
-	"green3",
-	"yellow3",
-	"blue2",
-	"magenta3",
-	"cyan3",
-	"gray90",
+        /* 8 normal colors */
+        "#2e3436",
+        "#a40000",
+        "#4e9a06",
+        "#c4a000",
+        "#3465a4",
+        "#75507b",
+        "#34a0a4",
+        "#babdb9",
 
-	/* 8 bright colors */
-	"gray50",
-	"red",
-	"green",
-	"yellow",
-	"#5c5cff",
-	"magenta",
-	"cyan",
-	"white",
+        /* 8 bright colors */
+        "#555753",
+        "#ef2929",
+        "#8ae234",
+        "#fce94f",
+        "#729fcf",
+        "#ad7fa8",
+        "#72d9cf",
+        "#eeeeec",
 
-	[255] = 0,
+        [255] = 0,
 
-	/* more colors can be added after 255 to use with DefaultXX */
-	"#cccccc",
-	"#555555",
-	"gray90", /* default foreground colour */
-	"black", /* default background colour */
+        /* more colors can be added after 255 to use with DefaultXX */
+        "#cccccc",
+        "#555555",
+        "#e4e4ef", /* default foreground colour */
+        "#181818", /* default background colour */
 };
 
 
@@ -193,6 +200,10 @@ static Shortcut shortcuts[] = {
 	{ XK_ANY_MOD,           XK_Break,       sendbreak,      {.i =  0} },
 	{ ControlMask,          XK_Print,       toggleprinter,  {.i =  0} },
 	{ ShiftMask,            XK_Print,       printscreen,    {.i =  0} },
+	{ TERMMOD,              XK_K,           kscrollup,      {.i = -1} },
+	{ TERMMOD,              XK_J,           kscrolldown,    {.i = -1} },
+	{ ShiftMask,            XK_Home,        kscrollup,      {.i = 1000000} },
+	{ ShiftMask,            XK_End,         kscrolldown,    {.i = 1000000} },
 	{ XK_ANY_MOD,           XK_Print,       printsel,       {.i =  0} },
 	{ TERMMOD,              XK_plus,        zoom,           {.f = +1} },
 	{ TERMMOD,              XK_underscore,  zoom,           {.f = -1} },
@@ -473,3 +484,8 @@ static char ascii_printable[] =
 	" !\"#$%&'()*+,-./0123456789:;<=>?"
 	"@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_"
 	"`abcdefghijklmnopqrstuvwxyz{|}~";
+
+/*
+ * The amount of lines scrollback can hold before it wraps around.
+ */
+unsigned int scrollback_lines = 5000;

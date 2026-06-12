@@ -37,8 +37,8 @@ exec --no-startup-id picom
 exec --no-startup-id copyq
 exec --no-startup-id "waypaper --restore"
 exec --no-startup-id dunst
-exec --no-startup-id urxvtd
-exec --no-startup-id "xrdb /home/anand/.Xresources"
+# exec --no-startup-id urxvtd
+# exec --no-startup-id "xrdb /home/anand/.Xresources"
 exec --no-startup-id "upower-notify"
 
 # Use pactl to adjust volume in PulseAudio.
@@ -57,8 +57,7 @@ floating_modifier $mod
 # tiling_drag modifier titlebar
 
 # start a terminal
-# bindsym $mod+Return exec "urxvt -e tmux new-session -A -s main"
-bindsym $mod+Return exec urxvtc
+bindsym $mod+Return exec st
 bindsym $mod+Shift+e exec pcmanfm
 bindsym $mod+v exec "copyq toggle"
 bindsym $mod+b exec helium
@@ -73,7 +72,8 @@ bindsym $mod+Shift+s exec "flameshot gui"
 bindsym $mod+q kill
 
 # start dmenu (a program launcher)
-# bindsym $mod+d exec --no-startup-id dmenu_run
+bindsym $mod+Shift+d exec --no-startup-id diction
+bindsym $mod+Shift+b exec --no-startup-id bookmarkr
 bindsym $mod+space exec "rofi -modi drun,run -show drun"
 # A more modern dmenu replacement is rofi:
 # bindcode $mod+65 exec "rofi -modi drun,run -show drun"
