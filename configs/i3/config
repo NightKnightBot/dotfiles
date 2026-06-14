@@ -35,10 +35,9 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 exec --no-startup-id nm-applet
 exec --no-startup-id picom
 exec --no-startup-id copyq
-exec --no-startup-id "waypaper --restore"
+exec --no-startup-id "xwallpaper --zoom ~/dots/walls/win7/win7wallpaper.jpg"
+exec --no-startup-id "awww-daemon"
 exec --no-startup-id dunst
-# exec --no-startup-id urxvtd
-# exec --no-startup-id "xrdb /home/anand/.Xresources"
 exec --no-startup-id "upower-notify"
 
 # Use pactl to adjust volume in PulseAudio.
@@ -61,8 +60,9 @@ bindsym $mod+Return exec st
 bindsym $mod+Shift+e exec pcmanfm
 bindsym $mod+v exec "copyq toggle"
 bindsym $mod+b exec helium
-
-# start a terminal
+bindsym $mod+Shift+d exec --no-startup-id diction
+bindsym $mod+Shift+b exec --no-startup-id bookmarkr
+bindsym $mod+space exec "rofi -modi drun,run -show drun"
 bindsym $mod+p exec passmenu
 
 # screenshot
@@ -71,15 +71,6 @@ bindsym $mod+Shift+s exec "flameshot gui"
 # kill focused window
 bindsym $mod+q kill
 
-# start dmenu (a program launcher)
-bindsym $mod+Shift+d exec --no-startup-id diction
-bindsym $mod+Shift+b exec --no-startup-id bookmarkr
-bindsym $mod+space exec "rofi -modi drun,run -show drun"
-# A more modern dmenu replacement is rofi:
-# bindcode $mod+65 exec "rofi -modi drun,run -show drun"
-# There also is i3-dmenu-desktop which only displays applications shipping a
-# .desktop file. It is a wrapper around dmenu, so you need that installed.
-# bindcode $mod+40 exec --no-startup-id i3-dmenu-desktop
 
 # change focus
 bindsym $mod+h focus left

@@ -66,10 +66,10 @@ vim.pack.add {
     src = 'https://github.com/rachartier/tiny-inline-diagnostic.nvim',
     name = 'tiny-inline-diagnostic'
   },
-  -- {
-  --   src = 'https://github.com/adibhanna/laravel.nvim',
-  --   name = 'laravel'
-  -- },
+  {
+    src = 'https://github.com/nanotee/zoxide.vim',
+    name = 'zoxide'
+  },
   {
     src = 'https://github.com/neovim/nvim-lspconfig',
     name = 'lspconfig'

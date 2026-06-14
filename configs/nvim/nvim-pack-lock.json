@@ -55,6 +55,10 @@
     "treesitter-context": {
       "rev": "b311b30818951d01f7b4bf650521b868b3fece16",
       "src": "https://github.com/nvim-treesitter/nvim-treesitter-context"
+    },
+    "zoxide": {
+      "rev": "520d1abeb71ba42989a842251f8ba5c46be89aab",
+      "src": "https://github.com/nanotee/zoxide.vim"
     }
   }
 }

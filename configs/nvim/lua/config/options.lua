@@ -1,3 +1,4 @@
+vim = vim
 vim.o.number = true
 vim.o.tabstop = 2
 vim.o.softtabstop = 2
@@ -17,10 +18,16 @@ vim.o.ignorecase = true
 vim.o.scrolloff = 8
 vim.o.winborder = 'rounded'
 vim.o.foldmethod = 'expr'
-vim.o.guifont = 'JetBrainsMono Nerd Font:h10'
+vim.o.guifont = 'JetBrainsMono Nerd Font:h8'
 vim.o.foldexpr = 'v:lua.vim.lsp.foldexpr()'
 vim.opt.path:append("**")
 vim.opt.completeopt = { "menu", "menuone", "noselect", "popup" }
+
+if vim.g.neovide then
+  vim.keymap.set({ "n", "v" }, "<C-+>", ":lua vim.g.neovide_scale_factor = vim.g.neovide_scale_factor + 0.1<CR>")
+  vim.keymap.set({ "n", "v" }, "<C-->", ":lua vim.g.neovide_scale_factor = vim.g.neovide_scale_factor - 0.1<CR>")
+  vim.keymap.set({ "n", "v" }, "<C-0>", ":lua vim.g.neovide_scale_factor = 1<CR>")
+end
 
 vim.api.nvim_create_autocmd("TextYankPost", {
   callback = function()

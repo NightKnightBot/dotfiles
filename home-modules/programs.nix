@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, config, ... }:
 {
   programs = {
     swaylock = {
@@ -17,5 +17,13 @@
 
     nix-index.enable = true;
     home-manager.enable = true;
+
+    git = {
+      enable = true;
+      settings = {
+        include.path = "${config.home.homeDirectory}/dots/git_identity";
+        init.defaultBranch = "main";
+      };
+    };
   };
 }
