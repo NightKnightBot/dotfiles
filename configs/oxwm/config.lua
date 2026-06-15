@@ -1,15 +1,4 @@
 ---@meta
--------------------------------------------------------------------------------
--- OXWM Configuration File
--------------------------------------------------------------------------------
--- This is the default configuration for OXWM, a dynamic window manager.
--- Edit this file and reload with Mod+Shift+R (no compilation needed)
---
--- For more information about configuring OXWM, see the documentation.
--- The Lua Language Server provides autocomplete and type checking.
--------------------------------------------------------------------------------
-
----Load type definitions for LSP
 ---@module 'oxwm'
 
 -------------------------------------------------------------------------------
@@ -23,12 +12,7 @@ local oxwm = oxwm
 local modkey = "Mod4"
 
 -- Terminal emulator command (defaults to alacritty)
-local terminal = "kitty"
-
--- Color palette - customize these to match your theme
--- Alternatively you can import other files in here, such as
--- local colors = require("colors.lua") and make colors.lua a file
--- in the ~/.config/oxwm directory
+local terminal = "st"
 local colors = {
   fg = "#bbbbbb",
   red = "#f7768e",
@@ -44,7 +28,6 @@ local colors = {
 
 -- Workspace tags - can be numbers, names, or icons (requires a Nerd Font)
 local tags = { "1", "2", "3", "4", "5", "6", "7", "8", "9" }
--- local tags = { "", "󰊯", "", "", "󰙯", "󱇤", "", "󱘶", "󰧮" } -- Example of nerd font icon tags
 
 -- Font for the status bar (use "fc-list" to see available fonts)
 local bar_font = "monospace:style=Bold:size=10"
@@ -113,9 +96,9 @@ oxwm.set_layout_symbol("tabbed", "[=]")
 -- Border configuration
 
 -- Width in pixels
-oxwm.border.set_width(2)
+oxwm.border.set_width(4)
 -- Color of focused window border
-oxwm.border.set_focused_color(colors.blue)
+oxwm.border.set_focused_color(colors.red)
 -- Color of unfocused window borders
 oxwm.border.set_unfocused_color(colors.grey)
 
@@ -192,6 +175,13 @@ oxwm.bar.set_scheme_urgent(colors.red, colors.bg, colors.red)
 
 -- Basic window management
 
+-- XF86 Keys
+oxwm.key.bind({}, "XF86MonBrightnessUp", oxwm.spawn({ "sh", "-c", "brightnessctl set +5%" }))
+oxwm.key.bind({}, "XF86MonBrightnessDown", oxwm.spawn({ "sh", "-c", "brightnessctl set 5%-" }))
+oxwm.key.bind({}, "XF86AudioRaiseVolume", oxwm.spawn({ "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+" }))
+oxwm.key.bind({}, "XF86AudioLowerVolume", oxwm.spawn({ "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-" }))
+oxwm.key.bind({}, "XF86AudioMute", oxwm.spawn({ "pactl set-sink-mute @DEFAULT_SINK@ toggle" }))
+
 oxwm.key.bind({ modkey }, "Return", oxwm.spawn_terminal())
 oxwm.key.bind({ modkey }, "B", oxwm.spawn({ "sh", "-c", "helium" }))
 oxwm.key.bind({ modkey }, "E", oxwm.spawn({ "sh", "-c", "pcmanfm" }))
@@ -199,15 +189,15 @@ oxwm.key.bind({ modkey }, "E", oxwm.spawn({ "sh", "-c", "pcmanfm" }))
 oxwm.key.bind({ modkey }, "Space", oxwm.spawn({ "sh", "-c", "rofi -show drun" }))
 -- Copy screenshot to clipboard
 oxwm.key.bind({ modkey, "Shift" }, "S", oxwm.spawn({ "sh", "-c", "flameshot gui" }))
--- oxwm.key.bind({ modkey }, "S", oxwm.spawn({ "sh", "-c", "maim -s | xclip -selection clipboard -t image/png" }))
+oxwm.key.bind({ modkey, "Shift" }, "D", oxwm.spawn({ "sh", "-c", "bookmarkr" }))
 oxwm.key.bind({ modkey }, "Q", oxwm.client.kill())
 
 -- Keybind overlay - Shows important keybindings on screen
-oxwm.key.bind({ modkey, "Shift" }, "Slash", oxwm.show_keybinds())
+oxwm.key.bind({ modkey }, "V", oxwm.spawn({ "copyq toggle" }))
 
 -- Window state toggles
 oxwm.key.bind({ modkey }, "F", oxwm.client.toggle_fullscreen())
-oxwm.key.bind({ modkey }, "T", oxwm.spawn({ "sh", "-c", "~/dots/oxwm/toggle-tray" }))
+oxwm.key.bind({ modkey }, "T", oxwm.spawn({ "sh", "-c", "~/dots/configs/oxwm/toggle-tray" }))
 oxwm.key.bind({ modkey, "Shift" }, "Space", oxwm.client.toggle_floating())
 
 -- Layout management
@@ -247,11 +237,11 @@ oxwm.key.bind({ modkey, "Shift" }, "K", oxwm.client.move_stack(-1))
 -- Multi-monitor support
 
 -- Focus next/previous Monitors
-oxwm.key.bind({ modkey }, "Comma", oxwm.monitor.focus(-1))
-oxwm.key.bind({ modkey }, "Period", oxwm.monitor.focus(1))
--- Move window to next/previous Monitors
-oxwm.key.bind({ modkey, "Shift" }, "Comma", oxwm.monitor.tag(-1))
-oxwm.key.bind({ modkey, "Shift" }, "Period", oxwm.monitor.tag(1))
+-- oxwm.key.bind({ modkey }, "Comma", oxwm.monitor.focus(-1))
+-- oxwm.key.bind({ modkey }, "Period", oxwm.monitor.focus(1))
+-- -- Move window to next/previous Monitors
+-- oxwm.key.bind({ modkey, "Shift" }, "Comma", oxwm.monitor.tag(-1))
+-- oxwm.key.bind({ modkey, "Shift" }, "Period", oxwm.monitor.tag(1))
 
 -- Workspace (tag) navigation
 -- Switch to workspace N (tags are 0-indexed, so tag "1" is index 0)
@@ -306,10 +296,10 @@ oxwm.key.bind({ modkey, "Control", "Shift" }, "9", oxwm.tag.toggletag(8))
 -- Keychords allow you to bind multiple-key sequences (like Emacs or Vim)
 -- Format: {{modifiers}, key1}, {{modifiers}, key2}, ...
 -- Example: Press Mod4+Space, then release and press T to spawn a terminal
-oxwm.key.chord({
-  { { modkey }, "Space" },
-  { {},         "T" }
-}, oxwm.spawn_terminal())
+-- oxwm.key.chord({
+--   { { modkey, "Shift" }, "Space" },
+--   { {},                  "T" }
+-- }, oxwm.spawn_terminal())
 
 -------------------------------------------------------------------------------
 -- Autostart

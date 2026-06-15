@@ -1,17 +1,3 @@
--- Dependencies
-
-vim.pack.add {
-  -- -- Laravel.Nvim
-  -- {
-  --   src = 'https://github.com/MunifTanjim/nui.nvim',
-  --   name = 'nui.nvim'
-  -- },
-  -- {
-  --   src = 'https://github.com/nvim-lua/plenary.nvim',
-  --   name = 'plenary.nvim'
-  -- },
-}
-
 -- Plugins
 vim.pack.add {
   {
@@ -74,6 +60,13 @@ vim.pack.add {
     src = 'https://github.com/neovim/nvim-lspconfig',
     name = 'lspconfig'
   },
+  {
+    src = 'https://github.com/amitds1997/remote-nvim.nvim',
+    name = 'remote'
+  },
+  "https://github.com/nvim-lua/plenary.nvim",
+  "https://github.com/MunifTanjim/nui.nvim",
+  "https://github.com/nvim-telescope/telescope.nvim",
 }
 
 require('mini.surround').setup()
@@ -84,5 +77,5 @@ require('mini.files').setup()
 require('tiny-inline-diagnostic').setup()
 require('toggleterm').setup()
 require('gitsigns').setup()
--- require('laravel').setup()
+require('remote-nvim').setup()
 require 'treesitter-context'.setup { enable = true }

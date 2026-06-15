@@ -1,22 +1,29 @@
 { pkgs, ... }:
 {
   home.packages = with pkgs; [
+    # Language Server
     nil
     lua-language-server
+    tinymist
+    # Compilers
+    python3
+    rustup
+    clang
+    # Editors
     godot
+    neovide
+    neovim
+    # Terminal Application
     mdterm
     tmux
     jujutsu
     cloc
-    neovide
-    neovim
-    python3
-    rustup
-    clang
     lazysql
     lazygit
-    tinymist
     clang-tools
     devenv
+    gnumake
+    cmake
+    lldb
   ];
 }
