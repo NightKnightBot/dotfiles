@@ -24,6 +24,7 @@
   home.sessionVariables = {
     EDITOR = "nvim";
     TERMINAL = "st";
+    CC = "clang";
   };
 
   xdg.configFile = builtins.mapAttrs (name: subpath: {

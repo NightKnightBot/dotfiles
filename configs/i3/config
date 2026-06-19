@@ -27,8 +27,7 @@ bindsym $mod+Return exec st
 bindsym $mod+Shift+e exec pcmanfm
 bindsym $mod+v exec "copyq toggle"
 bindsym $mod+b exec helium
-bindsym $mod+Shift+d exec --no-startup-id diction
-bindsym $mod+Shift+b exec --no-startup-id bookmarkr
+bindsym $mod+Shift+d exec --no-startup-id bookmarkr
 bindsym $mod+space exec "rofi -modi drun,run -show drun"
 bindsym $mod+p exec passmenu
 

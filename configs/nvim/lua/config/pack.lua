@@ -9,6 +9,10 @@ vim.pack.add {
     name = 'treesitter'
   },
   {
+    src = 'https://github.com/neovim-treesitter/treesitter-parser-registry',
+    name = 'treesitter-registry'
+  },
+  {
     src = 'https://github.com/OXY2DEV/markview.nvim',
     name = 'markview'
   },

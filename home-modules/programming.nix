@@ -5,10 +5,12 @@
     nil
     lua-language-server
     tinymist
+    gopls
     # Compilers
     python3
     rustup
     clang
+    go
     # Editors
     godot
     neovide

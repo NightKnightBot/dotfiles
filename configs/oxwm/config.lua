@@ -308,7 +308,8 @@ oxwm.key.bind({ modkey, "Control", "Shift" }, "9", oxwm.tag.toggletag(8))
 -- Uncomment and modify these examples, or add your own
 
 oxwm.autostart("picom")
-oxwm.autostart("xwallpaper --zoom ~/dots/walls/win7/win7wallpaper.jpg")
+oxwm.autostart("xwallpaper --zoom ~/dots/walls/win7/Bliss.jpg")
 oxwm.autostart("dunst")
 oxwm.autostart("copyq")
 oxwm.autostart("nm-applet")
+oxwm.autostart("upower-notify")

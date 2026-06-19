@@ -45,9 +45,9 @@
     mosh
     calibre
     easyeffects
-    prismlauncher
     obs-studio
     trayer
     awww
+    bruno
   ];
 }
