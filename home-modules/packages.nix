@@ -1,6 +1,8 @@
 { pkgs, ... }:
 {
   home.packages = with pkgs; [
+    file
+    spotdl
     rmpc
     mpv
     fzf
