@@ -3,6 +3,7 @@
   home.packages = with pkgs; [
     # Language Server
     nil
+    basedpyright
     lua-language-server
     tinymist
     gopls

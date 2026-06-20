@@ -100,6 +100,7 @@
       "libvirtd"
       "kvm"
       "docker"
+      "ydotool"
     ];
   };
 
