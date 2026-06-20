@@ -54,7 +54,7 @@
         dwm = {
           enable = true;
           package = pkgs.dwm.overrideAttrs {
-            src = ./configs/dwm;
+            src = ../configs/dwm;
           };
         };
         oxwm.enable = true;
@@ -62,10 +62,8 @@
           enable = true;
           extraPackages = with pkgs; [
             dmenu
-            i3status
             dex
             xss-lock
-            i3lock
             xdotool
             xprop
             xdo
