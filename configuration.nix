@@ -99,6 +99,7 @@
       "libvirtd"
       "kvm"
       "docker"
+      "ydotool"
     ];
   };
 
@@ -111,27 +112,20 @@
 
     systemPackages = with pkgs; [
       xrandr
-      vulkan-tools
       brightnessctl
       nix-output-monitor
       nvd
       vim
-      # git
       ly
       pavucontrol
       networkmanagerapplet
       pass
       libnotify
       wlr-randr
-      docker
       trash-cli
       nh
       sshfs
       file
-      xauth
-      xdotool
-      xdo
-      xprop
       xclip
       man-pages
       man-pages-posix
@@ -160,7 +154,13 @@
     "flakes"
   ];
 
-  virtualisation.libvirtd.enable = true;
+  virtualisation = {
+    libvirtd.enable = true;
+    docker = {
+      enable = true;
+      enableOnBoot = true;
+    };
+  };
 
   security.pam.services.swaylock = { };
 

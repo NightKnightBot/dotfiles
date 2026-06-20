@@ -1,6 +1,8 @@
 { pkgs, ... }:
 {
   home.packages = with pkgs; [
+    quickshell
+    spotdl
     rmpc
     mpv
     fzf
