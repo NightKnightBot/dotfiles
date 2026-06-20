@@ -106,12 +106,10 @@ oxwm.border.set_unfocused_color(colors.grey)
 -- "center-left", "center", "center-right", "bottom-left", "bottom-center", "bottom-right"
 oxwm.set_floating_position("center")
 
--- Smart Enabled = No border if 1 window
-oxwm.gaps.set_smart(enabled)
 -- Inner gaps (horizontal, vertical) in pixels
-oxwm.gaps.set_inner(5, 5)
+oxwm.gaps.set_inner(0, 0)
 -- Outer gaps (horizontal, vertical) in pixels
-oxwm.gaps.set_outer(5, 5)
+oxwm.gaps.set_outer(0, 0)
 
 -------------------------------------------------------------------------------
 -- Window Rules

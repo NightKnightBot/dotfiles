@@ -22,11 +22,11 @@ let
     spotify-player = "spotify-player";
     zathura = "zathura";
     i3 = "i3";
-    sway = "i3";
     alacritty = "alacritty";
     kitty = "kitty";
     picom = "picom";
     oxwm = "oxwm";
+    quickshell = "quickshell";
   };
 in
 {

@@ -7,6 +7,7 @@
     lua-language-server
     tinymist
     gopls
+    basedpyright
     # Compilers
     python3
     rustup

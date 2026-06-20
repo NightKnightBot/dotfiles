@@ -10,6 +10,7 @@
         show-failed-attempts = true;
       };
     };
+
     rofi = {
       enable = true;
       theme = "Paper";
@@ -17,6 +18,8 @@
 
     nix-index.enable = true;
     home-manager.enable = true;
+
+    quickshell.enable = true;
 
     git = {
       enable = true;

@@ -1,87 +1,165 @@
+/* =========================================
+   Waybar Theme — Gray-tone Dim (Kitty Match)
+   Clean Flat Version (No Shadows / No Borders)
+   ========================================= */
+
+/* Global Defaults */
 * {
-    border: none;
-    font-family: "JetBrains Mono";
-    font-weight: bold;
-    font-size: 12px;
-    min-height: 0;
-    /* margin: 1px; */
-    padding: 2px;
+	font-family: "JetBrainsMono Nerd Font", monospace;
+	font-weight: bold;
+	font-size: 12px;
+	margin: 0;
+	padding: 0;
+	box-shadow: none;
+	border: none;
 }
 
 window#waybar {
-    background: rgba(0, 0, 0, 0);
-    color: #ffffff;
+	background-color: rgba(18, 18, 18, 0.8);
+	color: #C0C0C0;
 }
 
-tooltip {
-    background: #1e1e2e;
-    border-width: 2px;
-    border-style: solid;
-    border-color: #11111b;
+/* --- WORKSPACES (ext/workspaces) --- */
+#workspaces {
+	margin: 0 4px;
+	color: #C0C0C0;
 }
 
 #workspaces button {
-    color: #636777;
+	border: none;
+	border-radius: 4px;
+	padding: 0 8px;
+	margin: 0 2px;
+	font-family: "JetBrainsMono Nerd Font", monospace;
+	font-size: 12px;
+	color: #888888;
+	box-shadow: none;
+	min-width: 30px;
 }
 
 #workspaces button.active {
-    background-color: #EEE;
+	background-color: #333333;
+	color: #DDDDDD;
 }
 
-#workspaces button.focused {
-    color: #a6adc8;
-    background: #eba0ac;
+#workspaces button.occupied {
+	color: #C0C0C0;
 }
 
 #workspaces button.urgent {
-    color: #11111b;
-    background: #a6e3a1;
+	background-color: #AA6666;
+	color: #0A0A0A;
 }
 
 #workspaces button:hover {
-    background: #11111b;
-    color: #11111b;
+	background-color: #252525;
+	color: #DDDDDD;
 }
 
-#window,
-#clock,
-#battery,
-#pulseaudio,
-#network,
-#bluetooth,
-#temperature,
-#memory,
-#cpu,
-#workspaces,
-#mpd,
-#tray,
-#backlight {
-    background: #1e1e2e;
+/* --- DWL TAGS (if using dwl/tags) --- */
+#tags {
+	margin: 0 4px;
+	color: #C0C0C0;
 }
 
-#workspaces {
-    background: #1e1e2e;
+#tags button {
+	border: none;
+	border-radius: 4px;
+	margin-left: -2px;
+	font-family: "JetBrainsMono Nerd Font", monospace;
+	font-size: 12px;
+	box-shadow: none;
 }
 
-#cpu,
-#temperature,
-#clock,
-#memory {
-    color: #8ac3f9;
+#tags button.occupied {
+	padding: 0 24px;
+	margin-left: 1px;
+	color: #C0C0C0;
+	font-size: 12px;
 }
 
-#pulseaudio {
-    color: #89b4fa;
+#tags button.focused {
+	padding: 0 24px;
+	margin-left: 1px;
+	background-color: #333333;
+	color: #DDDDDD;
+	font-size: 12px;
 }
 
+#tags button.urgent {
+	padding: 0 24px;
+	margin-left: 1px;
+	background-color: #AA6666;
+	color: #0A0A0A;
+	font-size: 12px;
+}
+
+/* --- WINDOW TITLE --- */
+#window {
+	margin: 0 4px 0 2px;
+	padding-right: 4px;
+	font-family: "JetBrainsMono Nerd Font", monospace;
+	font-size: 12px;
+	color: #C0C0C0;
+	border: none;
+	box-shadow: none;
+}
+
+#waybar.empty #window {
+	background: none;
+}
+
+/* --- CLOCK --- */
+#clock {
+	padding: 0 6px;
+	font-family: "JetBrainsMono Nerd Font", monospace;
+	font-size: 12px;
+	color: #C0C0C0;
+	border: none;
+	box-shadow: none;
+}
+
+/* --- SYSTEM TRAY --- */
+#tray {
+	margin-left: 8px;
+	padding: 0 8px;
+	font-family: "JetBrainsMono Nerd Font", monospace;
+	font-size: 12px;
+	color: #C0C0C0;
+	border: none;
+	box-shadow: none;
+}
+
+/* --- BATTERY --- */
 #battery {
-    color: #a6efa1;
+	padding: 0 6px;
+	font-family: "Sans", monospace;
+	font-size: 12px;
+	color: #AAAA66;
+	border: none;
+	box-shadow: none;
 }
 
-#battery.warning {
-    color: #ffaa00;
+/* --- MEMORY --- */
+#memory {
+	padding: 0 6px;
+	font-family: "JetBrainsMono Nerd Font", monospace;
+	font-size: 12px;
+	color: #8A9BE2;
+	border: none;
+	box-shadow: none;
 }
 
-#battery.critical {
-    color: #f00000;
-} 
+/* --- TOOLTIP --- */
+tooltip {
+	background-color: rgba(18, 18, 18, 0.9);
+	border-radius: 4px;
+	border: none;
+	box-shadow: none;
+}
+
+tooltip label {
+	color: #C0C0C0;
+	font-family: "JetBrainsMono Nerd Font", monospace;
+	font-size: 12px;
+}

@@ -90,6 +90,7 @@
   users.users.anand = {
     isNormalUser = true;
     extraGroups = [
+      "ydotool"
       "wheel"
       "network"
       "input"
@@ -125,7 +126,6 @@
       trash-cli
       nh
       sshfs
-      file
       xclip
       man-pages
       man-pages-posix

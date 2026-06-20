@@ -51,15 +51,19 @@
       autoRepeatInterval = 35;
 
       windowManager = {
+        dwm = {
+          enable = true;
+          package = pkgs.dwm.overrideAttrs {
+            src = ../configs/dwm;
+          };
+        };
         oxwm.enable = true;
         i3 = {
           enable = true;
           extraPackages = with pkgs; [
             dmenu
-            i3status
             dex
             xss-lock
-            i3lock
             xdotool
             xprop
             xdo
