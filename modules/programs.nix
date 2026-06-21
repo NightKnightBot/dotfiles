@@ -4,10 +4,6 @@
     virt-manager.enable = true;
     nix-ld.enable = true;
     mango.enable = true;
-    sway = {
-      enable = true;
-      wrapperFeatures.gtk = true;
-    };
     gnupg.agent = {
       enable = true;
       enableSSHSupport = true;

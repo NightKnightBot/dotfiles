@@ -46,26 +46,6 @@
     };
   };
 
-  wayland.windowManager.sway = {
-    enable = true;
-    config = {
-      input = {
-        "type:keyboard" = {
-          xkb_layout = "us";
-          xkb_options = "caps:escape";
-          repeat_delay = "200";
-          repeat_rate = "28";
-        };
-        "type:touchpad" = {
-          tap = "enabled";
-          natural_scroll = "enabled";
-          scroll_method = "two_finger";
-          dwt = "enabled";
-        };
-      };
-    };
-  };
-
   gtk = {
     enable = true;
     iconTheme = {
