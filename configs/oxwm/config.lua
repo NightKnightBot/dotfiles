@@ -6,8 +6,6 @@
 -------------------------------------------------------------------------------
 -- Define your variables here for easy customization throughout the config.
 -- This makes it simple to change keybindings, colors, and settings in one place.
-
--- Modifier key: "Mod4" is the Super/Windows key, "Mod1" is Alt
 local oxwm = oxwm
 local modkey = "Mod4"
 
@@ -48,7 +46,13 @@ local blocks = {
     color = colors.cyan,
     underline = true,
   }),
-  -- Uncomment to add battery status (useful for laptops)
+  oxwm.bar.block.shell({
+    format = "{}",
+    command = 'echo "$(playerctl metadata title) - $(playerctl metadata artist)"',
+    interval = 1,
+    color = "#f7768e",
+    underline = true,
+  }),
   oxwm.bar.block.battery({
     format = "Bat: {}%",
     charging = "⚡ Bat: {}%",
@@ -57,9 +61,6 @@ local blocks = {
     interval = 30,
     color = colors.green,
     underline = true,
-    -- click: run a command when the block is clicked
-    -- click = "alacritty -e btop",
-    -- click = { command = "bluetui", floating = true },
   }),
 };
 
@@ -69,9 +70,6 @@ local blocks = {
 oxwm.set_terminal(terminal)
 oxwm.set_modkey(modkey) -- This is for Mod + mouse binds, such as drag/resize
 oxwm.set_tags(tags)
-
--- Set default layout (tiling by default)
--- oxwm.set_layout("tiling")
 
 -------------------------------------------------------------------------------
 -- Layouts
@@ -84,7 +82,7 @@ oxwm.set_layout_symbol("tabbed", "[=]")
 -- oxwm.set_layout_symbol("dwindle", "[\\]")
 
 -- Example: bind dwindle (fibonacci) layout
--- oxwm.key.bind({ modkey }, "R", oxwm.layout.set("dwindle"))
+oxwm.key.bind({ modkey }, "M", oxwm.layout.set("monocle"))
 
 -- Set default layout of specific tag (tag_index, layout_name)
 -- Unset value uses oxwm.set_layout value
@@ -97,9 +95,7 @@ oxwm.set_layout_symbol("tabbed", "[=]")
 
 -- Width in pixels
 oxwm.border.set_width(4)
--- Color of focused window border
 oxwm.border.set_focused_color(colors.red)
--- Color of unfocused window borders
 oxwm.border.set_unfocused_color(colors.grey)
 
 -- Where floating windows spawn: "top-left", "top-center", "top-right",
@@ -289,23 +285,13 @@ oxwm.key.bind({ modkey, "Control", "Shift" }, "8", oxwm.tag.toggletag(7))
 oxwm.key.bind({ modkey, "Control", "Shift" }, "9", oxwm.tag.toggletag(8))
 
 -------------------------------------------------------------------------------
--- Advanced: Keychords
--------------------------------------------------------------------------------
--- Keychords allow you to bind multiple-key sequences (like Emacs or Vim)
--- Format: {{modifiers}, key1}, {{modifiers}, key2}, ...
--- Example: Press Mod4+Space, then release and press T to spawn a terminal
--- oxwm.key.chord({
---   { { modkey, "Shift" }, "Space" },
---   { {},                  "T" }
--- }, oxwm.spawn_terminal())
-
--------------------------------------------------------------------------------
 -- Autostart
 -------------------------------------------------------------------------------
 -- Commands to run once when OXWM starts
 -- Uncomment and modify these examples, or add your own
 
 oxwm.autostart("picom")
+oxwm.autostart("mpd-mpris")
 oxwm.autostart("xwallpaper --zoom ~/dots/walls/win7/Bliss.jpg")
 oxwm.autostart("dunst")
 oxwm.autostart("copyq")

@@ -25,7 +25,8 @@
     imagemagick
     yazi
     qbittorrent
-    playerctl
+    mpd-mpris
+    polybar
     ffmpeg
     exiftool
     picard

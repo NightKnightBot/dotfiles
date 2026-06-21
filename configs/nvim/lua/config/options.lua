@@ -18,7 +18,7 @@ vim.o.ignorecase = true
 vim.o.scrolloff = 8
 vim.o.winborder = 'rounded'
 vim.o.foldmethod = 'expr'
-vim.o.guifont = 'JetBrainsMono Nerd Font:h10'
+vim.o.guifont = 'JetBrainsMono Nerd Font:h8'
 vim.o.foldexpr = 'v:lua.vim.lsp.foldexpr()'
 vim.opt.path:append("**")
 vim.opt.completeopt = { "menu", "menuone", "noselect", "popup" }

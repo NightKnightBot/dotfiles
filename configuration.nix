@@ -81,11 +81,6 @@
   time.timeZone = "Asia/Kolkata";
 
   nixpkgs.config.allowUnfree = true;
-  nixpkgs.overlays = [
-    (final: prev: {
-      dwl = prev.dwl.override { conf = ./configs/dwl/dwl-config.h; };
-    })
-  ];
 
   nix.settings.trusted-users = [
     "root"

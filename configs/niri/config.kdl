@@ -259,7 +259,7 @@ binds {
   // rather than stacked on top of each other.
   Mod+W { toggle-column-tabbed-display; }
 
-  Mod+Shift+S { spawn "~/dots/niri/screenshotwayland.sh"; }
+  Mod+Shift+S { spawn "flameshot gui"; }
   Ctrl+Print { screenshot-screen; }
   Alt+Print { screenshot-window; }
 
@@ -269,8 +269,4 @@ binds {
   Ctrl+Alt+Delete { quit; }
 
   Mod+Shift+P { power-off-monitors; }
-}
-
-environment {
-  CHROME_EXECUTABLE "/usr/bin/chromium"
 }

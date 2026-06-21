@@ -60,7 +60,11 @@
 
       nixosConfigurations.anand-mini = nixpkgs.lib.nixosSystem {
         specialArgs = {
-          inherit home-manager mangowc inputs;
+          inherit
+            home-manager
+            mangowc
+            inputs
+            ;
         };
         modules = [
           ./configuration.nix

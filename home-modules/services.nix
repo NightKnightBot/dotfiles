@@ -20,6 +20,10 @@
       };
     };
 
+    # Disable this flag to disable chromium from being visible in playerctl chromium://flags/#hardware-media-key-handling
+    # Use media.hardwaremediakeys.enabled in about:config for firefox
+    playerctld.enable = true;
+
     mpd = {
       enable = true;
       musicDirectory = "${config.home.homeDirectory}/Music";

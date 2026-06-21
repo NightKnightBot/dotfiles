@@ -10,7 +10,7 @@ color=$(awk '
 
 color=${color:-#ffffff} # fallback
 
-icon_color="%{F$color}"
+icon_color="%{F#FF0000}"
 reset_color="%{F-}"
 
 playerctlstatus=$(playerctl status 2>/dev/null)
@@ -23,8 +23,8 @@ elif [[ "$playerctlstatus" =~ "Playing" ]]; then
     if [[ -z "$artist" ]]; then
         echo "%{A1:playerctl pause:}$icon_color⏸️$reset_color $song%{A}"
     else
-        echo "%{A1:playerctl pause:}$icon_color⏸️$reset_color $song%{A}"
+        echo "%{A1:playerctl pause:}$icon_color⏸️$reset_color $song - $artist%{A}"
     fi
 else
-    echo "%{A1:playerctl play:}$icon_color▶️$reset_color $song%{A}"
+    echo "%{A1:playerctl play:}$icon_color $song%{A}"
 fi
