@@ -9,7 +9,6 @@
 }:
 {
   imports = [
-    ./home-modules/suckless.nix
     ./home-modules/waylandonly.nix
     ./home-modules/programming.nix
     ./home-modules/symlinks.nix
@@ -39,7 +38,6 @@
     settings = {
       default = [
         "alacritty.desktop"
-        "st.desktop"
         "kitty.desktop"
         "foot.desktop"
       ];
