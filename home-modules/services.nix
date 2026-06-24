@@ -27,7 +27,15 @@
     mpd = {
       enable = true;
       musicDirectory = "${config.home.homeDirectory}/Music";
+      extraConfig = ''
+        audio_output {
+          type "pulse"
+          name "PipeWire Output"
+          always_on "yes"
+        }
+      '';
     };
+    mpd-mpris.enable = true;
 
     swayidle =
       let

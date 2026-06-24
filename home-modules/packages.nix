@@ -1,7 +1,8 @@
 { pkgs, ... }:
 {
   home.packages = with pkgs; [
-    quickshell
+    openssl
+    picom
     file
     spotdl
     rmpc
@@ -25,7 +26,6 @@
     imagemagick
     yazi
     qbittorrent
-    mpd-mpris
     polybar
     ffmpeg
     exiftool
@@ -51,7 +51,7 @@
     easyeffects
     obs-studio
     trayer
-    awww
+    wbg
     bruno
   ];
 }

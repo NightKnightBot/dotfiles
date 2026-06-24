@@ -6,7 +6,7 @@
 
   "modules-left": ["ext/workspaces", "dwl/window#layout", "dwl/window"],
   "modules-center": ["clock"],
-  "modules-right": ["battery", "cpu", "memory", "pulseaudio", "tray"],
+  "modules-right": ["mpris", "battery", "cpu", "memory", "pulseaudio", "tray"],
 
   "ext/workspaces": {
     "disable-scroll": false,
@@ -60,5 +60,12 @@
     "format-muted": "M",
     "tooltip-format": false,
     "on-click": "pavucontrol"
+  },
+
+  "mpris" : {
+    "format": "{title} - {artist}",
+    "title-len": 20,
+    "artist-len": 12,
+    "on-click": "playerctl play-pause"
   }
 }

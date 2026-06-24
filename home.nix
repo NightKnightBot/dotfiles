@@ -24,7 +24,7 @@
   home.stateVersion = "25.11"; # NEVER CHANGE THIS
   home.sessionVariables = {
     EDITOR = "nvim";
-    TERMINAL = "st";
+    TERMINAL = "alacritty";
     CC = "clang";
     GOPATH = "${config.home.homeDirectory}/.local/share/go";
   };

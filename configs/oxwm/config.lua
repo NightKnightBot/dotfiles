@@ -10,7 +10,7 @@ local oxwm = oxwm
 local modkey = "Mod4"
 
 -- Terminal emulator command (defaults to alacritty)
-local terminal = "st"
+local terminal = "alacritty"
 local colors = {
   fg = "#bbbbbb",
   red = "#f7768e",
@@ -291,7 +291,6 @@ oxwm.key.bind({ modkey, "Control", "Shift" }, "9", oxwm.tag.toggletag(8))
 -- Uncomment and modify these examples, or add your own
 
 oxwm.autostart("picom")
-oxwm.autostart("mpd-mpris")
 oxwm.autostart("xwallpaper --zoom ~/dots/walls/win7/Bliss.jpg")
 oxwm.autostart("dunst")
 oxwm.autostart("copyq")
