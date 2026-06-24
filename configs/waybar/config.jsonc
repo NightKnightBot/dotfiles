@@ -5,7 +5,7 @@
   "spacing": 0,
 
   "modules-left": ["ext/workspaces", "dwl/window#layout", "dwl/window"],
-  "modules-center": ["clock"],
+  "modules-center": ["clock", "disk"],
   "modules-right": ["mpris", "battery", "cpu", "memory", "pulseaudio", "tray"],
 
   "ext/workspaces": {
@@ -31,6 +31,13 @@
 
   "cpu": {
     "format": "C: {usage}%"
+  },
+
+  "disk": {
+    "format": "| Gooner Drive: {percentage_used}%",
+    "tooltip": true,
+    "tooltip-format": "{used} used and {free} remaining wow",
+    "unit": "GB"
   },
 
   "tray": {

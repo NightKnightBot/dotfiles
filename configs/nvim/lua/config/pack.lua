@@ -5,6 +5,10 @@ vim.pack.add {
     name = 'gitsigns'
   },
   {
+    src = 'https://github.com/NeogitOrg/neogit',
+    name = 'neogit'
+  },
+  {
     src = 'https://github.com/nvim-treesitter/nvim-treesitter',
     name = 'treesitter'
   },
@@ -68,9 +72,15 @@ vim.pack.add {
     src = 'https://github.com/amitds1997/remote-nvim.nvim',
     name = 'remote'
   },
+  {
+    src = 'https://github.com/ej-shafran/compile-mode.nvim',
+    name = 'compile-mode'
+  },
   "https://github.com/nvim-lua/plenary.nvim",
   "https://github.com/MunifTanjim/nui.nvim",
   "https://github.com/nvim-telescope/telescope.nvim",
+  "https://github.com/m00qek/baleia.nvim",
+  "https://github.com/esmuellert/codediff.nvim",
 }
 
 require('mini.surround').setup()
@@ -83,3 +93,19 @@ require('toggleterm').setup()
 require('gitsigns').setup()
 require('remote-nvim').setup()
 require 'treesitter-context'.setup { enable = true }
+
+---@module "compile-mode"
+---@type CompileModeOpts
+vim.g.compile_mode = {
+  default_command = {
+    python = "python %",
+    lua = "lua %",
+    javascript = "bun %",
+    typescript = "bun %",
+    c = "cc -o %:r % && ./%:r",
+    cpp = "cc -std=c++23 -o %:r % && ./%:r",
+    java = "javac % && java %:r",
+    go = "go run %",
+  },
+  baleia_setup = true,
+}

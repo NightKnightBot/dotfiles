@@ -21,6 +21,8 @@ vim.o.winborder = 'rounded'
 vim.o.foldmethod = 'expr'
 vim.o.foldexpr = 'v:lua.vim.lsp.foldexpr()'
 vim.opt.path:append("**")
+vim.opt.splitbelow = true
+vim.opt.splitright = true
 vim.opt.completeopt = { "menu", "menuone", "noselect", "popup" }
 
 
