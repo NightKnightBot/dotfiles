@@ -1,6 +1,9 @@
 { pkgs, ... }:
 {
   home.packages = with pkgs; [
+    daggerfall-unity
+    tig
+    w3m
     openssl
     picom
     file

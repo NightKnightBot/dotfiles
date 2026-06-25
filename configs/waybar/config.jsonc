@@ -5,7 +5,7 @@
   "spacing": 0,
 
   "modules-left": ["ext/workspaces", "dwl/window#layout", "dwl/window"],
-  "modules-center": ["clock", "disk"],
+  "modules-center": ["clock"],
   "modules-right": ["mpris", "battery", "cpu", "memory", "pulseaudio", "tray"],
 
   "ext/workspaces": {
