@@ -1,7 +1,7 @@
 { pkgs, ... }:
 {
   programs = {
-    virt-manager.enable = true;
+    # virt-manager.enable = true;
     nix-ld.enable = true;
     mango.enable = true;
     gnupg.agent = {
