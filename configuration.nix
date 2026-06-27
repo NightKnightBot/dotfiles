@@ -154,13 +154,13 @@
     "flakes"
   ];
 
-  virtualisation = {
-    # libvirtd.enable = true;
-    docker = {
-      enable = false;
-      enableOnBoot = true;
-    };
-  };
+  # virtualisation = {
+  #   libvirtd.enable = true;
+  #   docker = {
+  #     enable = false;
+  #     enableOnBoot = true;
+  #   };
+  # };
 
   security.pam.services.swaylock = { };
 
