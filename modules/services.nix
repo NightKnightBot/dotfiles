@@ -42,6 +42,7 @@
 
     xserver = {
       enable = true;
+      dpi = 96;
       xkb = {
         layout = "us";
         options = "caps:escape";

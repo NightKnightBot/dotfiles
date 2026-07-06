@@ -1,5 +1,5 @@
 vim.g.mapleader = ' '
-vim.keymap.set("n", "<leader>u", require("undotree").open)
+vim.keymap.set("n", "<leader>u", require("undotree").open, { desc = "Open Undotree" })
 vim.keymap.set("i", "", "<C-S-H>", { desc = "Solution for xterm" })
 vim.keymap.set({ "n", "v" }, "j", "gj", { desc = "Personal preference" })
 vim.keymap.set({ "n", "v" }, "k", "gk", { desc = "Personal preference" })
@@ -18,7 +18,7 @@ vim.keymap.set({ "n", "v" }, "<leader>y", "\"+y", { desc = "Copy to system clipb
 vim.keymap.set({ "n", "v" }, "<leader>yy", "V\"+y", { desc = "Copy to system clipboard" })
 vim.keymap.set({ "n" }, "<leader>p", "\"+p", { desc = "Paste system clipboard" })
 vim.keymap.set("v", "<leader>d", "\"_d", { desc = "Delete without copying to buffer" })
-vim.keymap.set("n", "<leader>dd", "V\"+d", { desc = "Delete without copying to buffer" })
+vim.keymap.set("n", "<leader>dd", "V\"_d", { desc = "Delete without copying to buffer" })
 vim.keymap.set({ 'n', 'i' }, '<C-l>', '<cmd>tabnext<CR>', { desc = "Move to next tab" })
 vim.keymap.set({ 'n', 'i' }, '<C-h>', '<cmd>tabprevious<CR>', { desc = "Move to previous tab" })
 vim.keymap.set("n", "<C-j>", "<cmd>cnext<CR>zz")

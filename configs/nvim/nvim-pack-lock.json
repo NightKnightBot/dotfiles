@@ -1,11 +1,11 @@
 {
   "plugins": {
     "Picker": {
-      "rev": "975e398570dd15696575c5374f94e78fd29a7a69",
+      "rev": "8c1f75f8ddd8c9f75d07ed2ab5718d2c3cb65a66",
       "src": "https://github.com/echasnovski/mini.pick"
     },
     "ai (around)": {
-      "rev": "a783ce6e1a5b3bc90519f20b51f4a5f6702734af",
+      "rev": "cb20f298ebf5ae91924cd0c6c310712de2ef4086",
       "src": "https://github.com/nvim-mini/mini.ai"
     },
     "baleia.nvim": {
@@ -17,11 +17,11 @@
       "src": "https://github.com/esmuellert/codediff.nvim"
     },
     "compile-mode": {
-      "rev": "dd3e952076a33faba0a55b04b2b73945832c0527",
+      "rev": "026b866dfb162313c3f1573f73daece6af0da3e3",
       "src": "https://github.com/ej-shafran/compile-mode.nvim"
     },
     "files": {
-      "rev": "5e0f0d264166e71d37ca35d84c54b1887ea76b40",
+      "rev": "057c16f0cafe59c9e1bf9d894723d6ae074b76fd",
       "src": "https://github.com/nvim-mini/mini.files"
     },
     "follow-markdown-links": {
@@ -29,7 +29,7 @@
       "src": "https://github.com/jghauser/follow-md-links.nvim"
     },
     "gitsigns": {
-      "rev": "dd3f588bacbeb041be6facf1742e42097f62165d",
+      "rev": "eb60cc7b94c46005237fd34170d76f3a089a90aa",
       "src": "https://github.com/lewis6991/gitsigns.nvim"
     },
     "image-clip": {
@@ -37,19 +37,19 @@
       "src": "https://github.com/HakonHarnes/img-clip.nvim"
     },
     "lspconfig": {
-      "rev": "f9349d4d99e7d66403ae8bf4fbd357b154dca7a7",
+      "rev": "d224a1920728ba129880efc700d4a0180ac4ecbb",
       "src": "https://github.com/neovim/nvim-lspconfig"
     },
     "markview": {
-      "rev": "a55e91f25994617a477d4a0e0b326f9dfa648f80",
+      "rev": "a2a07154b495367e4d609dd83c73120f1d058c75",
       "src": "https://github.com/OXY2DEV/markview.nvim"
     },
     "move": {
-      "rev": "a776027e68fe763987a0132d59877d651a7c0130",
+      "rev": "b9e452f9c83565a1520e14f7531632160f3b0170",
       "src": "https://github.com/nvim-mini/mini.move"
     },
     "neogit": {
-      "rev": "43ea1a0854052e583f647e0b35879f0158a70a78",
+      "rev": "6fc2fa890bd2031ed999c074daab0fb4feff20a5",
       "src": "https://github.com/NeogitOrg/neogit"
     },
     "nui.nvim": {
@@ -65,15 +65,15 @@
       "src": "https://github.com/amitds1997/remote-nvim.nvim"
     },
     "surround": {
-      "rev": "990ce30f724d08e79670107de6b915a3f1bb9a9b",
+      "rev": "a2f644f3759edd3d3f8b6a6d55378408bfe6d290",
       "src": "https://github.com/nvim-mini/mini.surround"
     },
     "telescope.nvim": {
-      "rev": "7d324792b7943e4aa16ad007212e6acc6f9fe335",
+      "rev": "427b576c16792edad01a92b89721d923c19ad60f",
       "src": "https://github.com/nvim-telescope/telescope.nvim"
     },
     "tiny-inline-diagnostic": {
-      "rev": "147af4e49f51dd48f41972de26552872b8ba7b25",
+      "rev": "6264451f14119d63a52580e5198d6baf8518b0b2",
       "src": "https://github.com/rachartier/tiny-inline-diagnostic.nvim"
     },
     "toggleterm": {
@@ -91,6 +91,10 @@
     "treesitter-registry": {
       "rev": "6eb15358bb9fc88f0d3401d8538d56652e9bdf3c",
       "src": "https://github.com/neovim-treesitter/treesitter-parser-registry"
+    },
+    "which-key": {
+      "rev": "3aab2147e74890957785941f0c1ad87d0a44c15a",
+      "src": "https://github.com/folke/which-key.nvim"
     },
     "zoxide": {
       "rev": "520d1abeb71ba42989a842251f8ba5c46be89aab",

@@ -20,6 +20,7 @@
     termdown
     pfetch
     flameshot
+    xfce4-screenshooter
     ripgrep
     fd
     libreoffice

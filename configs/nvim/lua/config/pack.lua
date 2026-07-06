@@ -5,6 +5,10 @@ vim.pack.add {
     name = 'gitsigns'
   },
   {
+    src = 'https://github.com/folke/which-key.nvim',
+    name = 'which-key'
+  },
+  {
     src = 'https://github.com/NeogitOrg/neogit',
     name = 'neogit'
   },
