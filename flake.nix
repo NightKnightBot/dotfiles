@@ -23,6 +23,11 @@
       url = "github:schembriaiden/helium-browser-nix-flake";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    neovim-nightly = {
+      url = "./modules/neovim-nightly";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
   outputs =
     {
@@ -44,25 +49,10 @@
     in
     {
 
-      devShells.${system}.suckless = pkgs.mkShell {
-        packages = with pkgs; [
-          pkg-config
-          xorg.libX11
-          xorg.libXft
-          xorg.libXinerama
-          fontconfig
-          freetype
-          harfbuzz
-          gcc
-          gnumake
-        ];
-      };
-
       nixosConfigurations.anand-mini = nixpkgs.lib.nixosSystem {
         specialArgs = {
           inherit
             home-manager
-            mangowc
             inputs
             ;
         };
@@ -77,7 +67,13 @@
               backupFileExtension = "hmbackup";
             };
           }
-          mangowc.nixosModules.mango
+          {
+            environment.systemPackages = [
+              inputs.helium.packages.x86_64-linux.default
+              inputs.neovim-nightly.packages.x86_64-linux.default
+            ];
+          }
+          inputs.mangowc.nixosModules.mango
           auto-cpufreq.nixosModules.default
         ];
       };

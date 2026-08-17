@@ -29,8 +29,13 @@
 
   documentation.dev.enable = true;
 
+  i18n.inputMethod = {
+    enable = true;
+    type = "ibus";
+  };
+
   hardware.bluetooth = {
-    enable = false;
+    enable = true;
     powerOnBoot = true;
     settings = {
       General = {
@@ -130,7 +135,6 @@
       man-pages
       man-pages-posix
       upower-notify
-      inputs.helium.packages.x86_64-linux.default
     ];
   };
 

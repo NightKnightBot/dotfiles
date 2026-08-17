@@ -1,8 +1,14 @@
 { pkgs, ... }:
 {
   programs = {
-    # virt-manager.enable = true;
-    nix-ld.enable = true;
+    nix-ld = {
+      enable = true;
+      libraries = with pkgs; [
+        wayland
+        libxkbcommon
+        chafa
+      ];
+    };
     mango.enable = true;
     gnupg.agent = {
       enable = true;
@@ -15,7 +21,6 @@
         IPProtectionAvailable = true;
       };
     };
-    ydotool.enable = true;
     thunar = {
       enable = true;
       plugins = with pkgs; [

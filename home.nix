@@ -27,6 +27,9 @@
     CC = "clang";
     GOPATH = "${config.home.homeDirectory}/.local/share/go";
   };
+  home.sessionPath = [
+    "${config.home.homeDirectory}/.local/share/go/bin"
+  ];
 
   xdg.configFile = builtins.mapAttrs (name: subpath: {
     source = create_symlink "${dotfiles}/${subpath}";
@@ -51,8 +54,8 @@
       package = pkgs.papirus-icon-theme;
     };
     theme = lib.mkForce {
-      name = "Nightfox-Dark";
-      package = pkgs.nightfox-gtk-theme;
+      name = "Adwaita";
+      package = pkgs.gnome-themes-extra;
     };
     gtk4.theme = null;
   };

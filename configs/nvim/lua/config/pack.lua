@@ -37,10 +37,6 @@ vim.pack.add {
     name = 'move'
   },
   {
-    src = 'https://github.com/nvim-mini/mini.files',
-    name = 'files'
-  },
-  {
     src = 'https://github.com/nvim-treesitter/nvim-treesitter-context',
     name = 'treesitter-context'
   },
@@ -91,7 +87,6 @@ require('mini.surround').setup()
 require('mini.ai').setup()
 require('mini.pick').setup()
 require('mini.move').setup()
-require('mini.files').setup()
 require('tiny-inline-diagnostic').setup()
 require('toggleterm').setup()
 require('gitsigns').setup()

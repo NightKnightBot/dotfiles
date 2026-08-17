@@ -32,7 +32,7 @@ bindsym $mod+space exec "rofi -modi drun,run -show drun"
 bindsym $mod+p exec passmenu
 
 # screenshot
-bindsym $mod+Shift+s exec "flameshot gui"
+bindsym $mod+Shift+s exec "xfce4-screenshooter"
 
 # kill focused window
 bindsym $mod+q kill

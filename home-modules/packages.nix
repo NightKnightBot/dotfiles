@@ -1,6 +1,8 @@
 { pkgs, ... }:
 {
   home.packages = with pkgs; [
+    prismlauncher
+    chafa
     tig
     w3m
     openssl
@@ -9,7 +11,6 @@
     spotdl
     rmpc
     mpv
-    fzf
     nb
     eza
     yt-dlp

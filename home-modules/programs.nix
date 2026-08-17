@@ -14,12 +14,18 @@
     rofi = {
       enable = true;
       theme = "Paper";
+      extraConfig = {
+        kb-row-up = "Up,Control+Shift+K";
+        kb-row-down = "Down,Control+Shift+J";
+      };
     };
 
     nix-index.enable = true;
     home-manager.enable = true;
-
-    quickshell.enable = true;
+    fzf = {
+      enable = true;
+      enableBashIntegration = true;
+    };
 
     git = {
       enable = true;

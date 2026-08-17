@@ -70,9 +70,11 @@
   },
 
   "mpris" : {
-    "format": "{title} - {artist}",
+    "format": "{title}",
     "title-len": 20,
     "artist-len": 12,
-    "on-click": "playerctl play-pause"
+    "on-click": "playerctl play-pause",
+    "tooltip": true,
+    "tooltip-format": "{title} - {artist}"
   }
 }

@@ -43,7 +43,7 @@
       clear
     '';
     shellAliases = {
-      ls = "eza --icons";
+      ls = "eza --icons always";
       grep = "grep --color=auto";
       cd = "z";
       cat = "bat";

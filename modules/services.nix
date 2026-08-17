@@ -11,7 +11,7 @@
     };
 
     mysql = {
-      enable = false;
+      enable = true;
       package = pkgs.percona-server;
     };
 
@@ -65,7 +65,6 @@
             xdo
             picom
             alacritty
-            nsxiv
             pcmanfm
             dunst
             waypaper

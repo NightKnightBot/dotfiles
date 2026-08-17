@@ -23,7 +23,7 @@ elif [[ "$playerctlstatus" =~ "Playing" ]]; then
     if [[ -z "$artist" ]]; then
         echo "%{A1:playerctl pause:}$icon_color⏸️$reset_color $song%{A}"
     else
-        echo "%{A1:playerctl pause:}$icon_color⏸️$reset_color $song - $artist%{A}"
+        echo "%{A1:playerctl pause:}$icon_color⏸️$reset_color $song%{A}"
     fi
 else
     echo "%{A1:playerctl play:}$icon_color $song%{A}"
