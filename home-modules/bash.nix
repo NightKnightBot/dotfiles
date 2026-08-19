@@ -47,7 +47,7 @@
       grep = "grep --color=auto";
       cd = "z";
       cat = "bat";
-      ll = "eza --icons -lha";
+      l = "eza --icons -lha";
       la = "eza --icons -a";
       sp = "spotify_player";
       t = "tmux";

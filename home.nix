@@ -23,7 +23,7 @@
   home.stateVersion = "25.11"; # NEVER CHANGE THIS
   home.sessionVariables = {
     EDITOR = "nvim";
-    TERMINAL = "alacritty";
+    TERMINAL = "kitty";
     CC = "clang";
     GOPATH = "${config.home.homeDirectory}/.local/share/go";
   };
@@ -40,8 +40,8 @@
     enable = true;
     settings = {
       default = [
-        "alacritty.desktop"
         "kitty.desktop"
+        "alacritty.desktop"
         "foot.desktop"
       ];
     };
