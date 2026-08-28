@@ -1,6 +1,5 @@
 {
   pkgs,
-  inputs,
   ...
 }:
 
@@ -117,6 +116,7 @@
     localBinInPath = true;
 
     systemPackages = with pkgs; [
+      appimage-run
       xrandr
       brightnessctl
       nix-output-monitor

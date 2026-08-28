@@ -5,6 +5,7 @@
   dotfiles,
   create_symlink,
   configs,
+  inputs,
   ...
 }:
 {

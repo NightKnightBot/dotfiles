@@ -37,16 +37,6 @@
       mangowc,
       ...
     }@inputs:
-    let
-      inherit (nixpkgs) lib;
-      system = "x86_64-linux";
-      pkgs = import nixpkgs {
-        inherit system;
-        config = {
-          allowUnfree = true;
-        };
-      };
-    in
     {
 
       nixosConfigurations.anand-mini = nixpkgs.lib.nixosSystem {

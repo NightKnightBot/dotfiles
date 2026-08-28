@@ -1,7 +1,6 @@
 {
   "layer": "bottom",
   "position": "bottom",
-  "height": 0,
   "spacing": 0,
 
   "modules-left": ["ext/workspaces", "dwl/window#layout", "dwl/window"],
@@ -65,7 +64,7 @@
     "scroll-step": 1,
     "format": "V: {volume}%",
     "format-muted": "M",
-    "tooltip-format": false,
+    "tooltip": false,
     "on-click": "pavucontrol"
   },
 

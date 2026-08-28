@@ -12,6 +12,14 @@
       "rev": "710537ff5cd669c5a76c5f5b6a9169fd9b913d18",
       "src": "https://github.com/m00qek/baleia.nvim"
     },
+    "blink.cmp": {
+      "rev": "101d71861f6a012f2be80e4100720874330d86aa",
+      "src": "https://github.com/saghen/blink.cmp"
+    },
+    "blink.lib": {
+      "rev": "c8fdc12c8a2fab6cf786dd7141a283f8079f902b",
+      "src": "https://github.com/saghen/blink.lib"
+    },
     "codediff.nvim": {
       "rev": "31510a9b34c032b6fe98fc158d4066702f68cff2",
       "src": "https://github.com/esmuellert/codediff.nvim"
@@ -51,6 +59,10 @@
     "nui.nvim": {
       "rev": "de740991c12411b663994b2860f1a4fd0937c130",
       "src": "https://github.com/MunifTanjim/nui.nvim"
+    },
+    "oil": {
+      "rev": "b73018b75affd13fa38e2fc94ef753b465f770d7",
+      "src": "https://github.com/stevearc/oil.nvim"
     },
     "plenary.nvim": {
       "rev": "74b06c6c75e4eeb3108ec01852001636d85a932b",

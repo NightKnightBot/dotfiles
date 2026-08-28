@@ -14,11 +14,16 @@ vim.api.nvim_create_autocmd("BufWritePre", {
   callback = function() vim.lsp.buf.format() end,
 })
 
+vim.lsp.config('*', {
+  capabilities = require('blink.cmp').get_lsp_capabilities(),
+})
+
 vim.lsp.enable({
   'lua_ls',
   'basedpyright',
   'rust-analyzer',
-  'nil_ls'
+  'nil_ls',
+  'jdtls'
 })
 
 vim.diagnostic.config({ virtual_text = false })

@@ -17,6 +17,11 @@ vim.pack.add {
     name = 'treesitter'
   },
   {
+    src = 'https://github.com/stevearc/oil.nvim',
+    name = 'oil'
+  },
+  'https://github.com/saghen/blink.lib', 'https://github.com/saghen/blink.cmp',
+  {
     src = 'https://github.com/neovim-treesitter/treesitter-parser-registry',
     name = 'treesitter-registry'
   },
@@ -92,6 +97,19 @@ require('toggleterm').setup()
 require('gitsigns').setup()
 require('remote-nvim').setup()
 require 'treesitter-context'.setup { enable = true }
+require("oil").setup()
+local cmp = require('blink.cmp')
+cmp.setup({
+  fuzzy = { implementation = 'lua' },
+
+  keymap = {
+    ['<CR>'] = { 'select_and_accept', 'fallback' },
+  },
+  completion = {
+    menu = { auto_show = true },
+    list = { selection = { preselect = true } },
+  }
+})
 
 ---@module "compile-mode"
 ---@type CompileModeOpts
