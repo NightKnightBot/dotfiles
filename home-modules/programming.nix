@@ -9,6 +9,7 @@
     tinymist
     gopls
     basedpyright
+    harper
 
     # Compilers
     jdk

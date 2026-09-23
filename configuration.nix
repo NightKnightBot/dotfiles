@@ -103,7 +103,6 @@
       "adbusers"
       "libvirtd"
       "kvm"
-      "docker"
       "ydotool"
     ];
   };
@@ -135,6 +134,8 @@
       man-pages
       man-pages-posix
       upower-notify
+      podman
+      podman-compose
     ];
   };
 

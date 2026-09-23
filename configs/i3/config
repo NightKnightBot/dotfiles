@@ -33,6 +33,9 @@ bindsym $mod+p exec passmenu
 # screenshot
 bindsym $mod+Shift+s exec "xfce4-screenshooter"
 
+# screenshot
+bindsym $mod+m exec "rofimoji"
+
 # kill focused window
 bindsym $mod+q kill
 

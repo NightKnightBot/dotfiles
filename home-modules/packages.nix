@@ -1,7 +1,8 @@
 { pkgs, ... }:
 {
   home.packages = with pkgs; [
-    xonotic
+    activate-linux
+    rofimoji
     kitty
     prismlauncher
     chafa
@@ -27,7 +28,6 @@
     ripgrep
     fd
     libreoffice
-    mgba
     unrar
     imagemagick
     yazi

@@ -27,6 +27,14 @@
         command rm -f -- "$tmp"
       }
 
+      nb() {
+        if [ "$1" = "show" ] || [ "$1" = "s" ] && [ -n "$2" ]; then
+          mdterm "$(command nb s "$2" --path)";
+        else
+          command nb "$@";
+        fi;
+      }
+
       if [ "$TERM" != "dumb" ] || [ -n "$INSIDE_EMACS" ]; then
         PROMPT_COLOR="1;31m"
         ((UID)) && PROMPT_COLOR="1;34m"

@@ -14,7 +14,7 @@
     rofi = {
       enable = true;
       theme = "Paper";
-      extraConfig = {
+      settings = {
         kb-row-up = "Up,Control+Shift+K";
         kb-row-down = "Down,Control+Shift+J";
       };
