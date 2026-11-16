@@ -7,6 +7,11 @@
         wayland
         libxkbcommon
         chafa
+        libgpg-error
+        libGL
+        libX11
+        e2fsprogs
+        gmp
       ];
     };
     mango.enable = true;

@@ -1,6 +1,0 @@
-#!/usr/bin/env bash
-if pgrep -x trayer > /dev/null; then
-    pkill trayer
-else
-    trayer --edge bottom --align right --widthtype request &
-fi

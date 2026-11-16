@@ -16,11 +16,8 @@ vim.pack.add {
     src = 'https://github.com/nvim-treesitter/nvim-treesitter',
     name = 'treesitter'
   },
-  {
-    src = 'https://github.com/stevearc/oil.nvim',
-    name = 'oil'
-  },
-  'https://github.com/saghen/blink.lib', 'https://github.com/saghen/blink.cmp',
+  'https://github.com/saghen/blink.lib',
+  'https://github.com/saghen/blink.cmp',
   {
     src = 'https://github.com/neovim-treesitter/treesitter-parser-registry',
     name = 'treesitter-registry'
@@ -42,12 +39,17 @@ vim.pack.add {
     name = 'move'
   },
   {
-    src = 'https://github.com/nvim-treesitter/nvim-treesitter-context',
-    name = 'treesitter-context'
+    src = 'https://github.com/nvim-mini/mini.pick',
+    name = 'Picker'
   },
   {
-    src = 'https://github.com/echasnovski/mini.pick',
-    name = 'Picker'
+    src = 'https://github.com/nvim-mini/mini.files',
+    version = 'stable',
+    name = 'Files'
+  },
+  {
+    src = 'https://github.com/nvim-treesitter/nvim-treesitter-context',
+    name = 'treesitter-context'
   },
   {
     src = 'https://github.com/HakonHarnes/img-clip.nvim',
@@ -92,12 +94,12 @@ require('mini.surround').setup()
 require('mini.ai').setup()
 require('mini.pick').setup()
 require('mini.move').setup()
+require('mini.files').setup()
 require('tiny-inline-diagnostic').setup()
 require('toggleterm').setup()
 require('gitsigns').setup()
 require('remote-nvim').setup()
 require 'treesitter-context'.setup { enable = true }
-require("oil").setup()
 local cmp = require('blink.cmp')
 cmp.setup({
   fuzzy = { implementation = 'lua' },

@@ -191,7 +191,6 @@ oxwm.key.bind({ modkey }, "V", oxwm.spawn({ "copyq toggle" }))
 
 -- Window state toggles
 oxwm.key.bind({ modkey }, "F", oxwm.client.toggle_fullscreen())
-oxwm.key.bind({ modkey }, "T", oxwm.spawn({ "sh", "-c", "~/dots/configs/oxwm/toggle-tray" }))
 oxwm.key.bind({ modkey, "Shift" }, "Space", oxwm.client.toggle_floating())
 
 -- Layout management

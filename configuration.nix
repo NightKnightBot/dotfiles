@@ -115,8 +115,8 @@
     localBinInPath = true;
 
     systemPackages = with pkgs; [
-      appimage-run
       xrandr
+      xss-lock
       brightnessctl
       nix-output-monitor
       nvd
@@ -134,8 +134,6 @@
       man-pages
       man-pages-posix
       upower-notify
-      podman
-      podman-compose
     ];
   };
 

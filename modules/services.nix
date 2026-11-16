@@ -1,8 +1,6 @@
 { pkgs, ... }:
 {
   services = {
-    tailscale.enable = true;
-
     blueman.enable = true;
 
     logind.settings.Login = {
@@ -52,27 +50,17 @@
       autoRepeatInterval = 35;
 
       windowManager = {
-        oxwm.enable = true;
+        # oxwm.enable = true;
         i3 = {
           enable = true;
           extraPackages = with pkgs; [
-            i3status
-            dmenu
-            dex
-            xss-lock
-            xdotool
-            xprop
-            xdo
             picom
-            alacritty
             pcmanfm
             dunst
-            waypaper
             feh
             qutebrowser
             libinput-gestures
             xwallpaper
-            rxvt-unicode-emoji
             ueberzugpp
           ];
         };

@@ -4,21 +4,22 @@
     # Language Server lsp
     jdt-language-server
     nil
-    basedpyright
     lua-language-server
     tinymist
     gopls
-    basedpyright
     harper
 
     # Compilers
-    jdk
-    jre
+    jdk25
     python3
+    uv
     rustup
     clang
     go
     protobuf
+    typst
+    nodejs
+    vite
     # Editors
     # godot
     # neovim - THIS IS PRESENT AS A FLAKE. Building from source

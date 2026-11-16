@@ -19,7 +19,6 @@ let
     tmux = "tmux";
     polybar = "polybar";
     flameshot = "flameshot";
-    spotify-player = "spotify-player";
     zathura = "zathura";
     i3 = "i3";
     alacritty = "alacritty";

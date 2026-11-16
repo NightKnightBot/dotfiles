@@ -1,6 +1,10 @@
 { pkgs, ... }:
 {
   home.packages = with pkgs; [
+    handbrake
+    fallout-ce
+    tree
+    maim
     activate-linux
     rofimoji
     kitty
@@ -23,8 +27,6 @@
     dysk
     termdown
     pfetch
-    flameshot
-    xfce4-screenshooter
     ripgrep
     fd
     libreoffice
@@ -51,12 +53,10 @@
     gimp3
     kdePackages.ark
     ferdium
-    spotify-player
     mosh
     calibre
     easyeffects
     obs-studio
-    trayer
     wbg
     bruno
   ];

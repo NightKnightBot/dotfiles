@@ -4,7 +4,7 @@ font pango:monospace 8
 
 exec --no-startup-id dex --autostart --environment i3
 
-exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
+exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork -e -i ~/dots/walls/win7/win7wallpaper.jpg
 
 exec --no-startup-id nm-applet
 exec --no-startup-id picom
@@ -31,7 +31,7 @@ bindsym $mod+space exec "rofi -modi drun,run -show drun"
 bindsym $mod+p exec passmenu
 
 # screenshot
-bindsym $mod+Shift+s exec "xfce4-screenshooter"
+bindsym $mod+Shift+s exec "screenshot"
 
 # screenshot
 bindsym $mod+m exec "rofimoji"

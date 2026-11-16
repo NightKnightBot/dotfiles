@@ -48,6 +48,7 @@
           PS1="\[\033]2;:\w\007\]$PS1"
         fi
       fi
+      eval "$(devenv hook bash -- --no-reload)"
       clear
     '';
     shellAliases = {

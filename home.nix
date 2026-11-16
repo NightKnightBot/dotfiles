@@ -7,6 +7,13 @@
   configs,
   ...
 }:
+let
+  spelunky = pkgs.makeDesktopItem {
+    name = "Spelunky";
+    desktopName = "Spelunky";
+    exec = "${config.home.homeDirectory}/.local/bin/spelunky";
+  };
+in
 {
   imports = [
     ./home-modules/waylandonly.nix
@@ -17,6 +24,8 @@
     ./home-modules/programs.nix
     ./home-modules/services.nix
   ];
+
+  home.packages = [ spelunky ];
 
   home.username = "anand";
   home.homeDirectory = "/home/anand";
