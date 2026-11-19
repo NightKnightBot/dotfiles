@@ -8,6 +8,7 @@
     tinymist
     gopls
     harper
+    vtsls
 
     # Compilers
     jdk25

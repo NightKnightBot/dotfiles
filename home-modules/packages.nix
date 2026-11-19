@@ -1,6 +1,8 @@
 { pkgs, ... }:
 {
   home.packages = with pkgs; [
+    alacritty
+    vscode
     handbrake
     fallout-ce
     tree

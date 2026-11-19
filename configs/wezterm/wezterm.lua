@@ -1,6 +1,6 @@
 local wezterm = require 'wezterm'
 local config = {}
-config.font = wezterm.font 'JetBrains Mono'
+config.font = wezterm.font 'JetBrainsMono Nerd Font Mono'
 config.font_size = 12
 config.window_decorations = "NONE"
 config.hide_tab_bar_if_only_one_tab = true

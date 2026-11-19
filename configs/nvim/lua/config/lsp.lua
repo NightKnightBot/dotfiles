@@ -21,9 +21,10 @@ vim.lsp.config('*', {
 vim.lsp.enable({
   'lua_ls',
   'basedpyright',
-  'rust-analyzer',
+  'rust_analyzer',
   'nil_ls',
-  'jdtls'
+  'jdtls',
+  'vtsls',
 })
 
 vim.diagnostic.config({ virtual_text = false })

@@ -28,11 +28,6 @@
       url = "./modules/neovim-nightly";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    spotatui = {
-      url = "github:LargeModGames/spotatui";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
   };
   outputs =
     {
@@ -66,8 +61,6 @@
             environment.systemPackages = [
               inputs.helium.packages.x86_64-linux.default
               inputs.neovim-nightly.packages.x86_64-linux.default
-              inputs.spotatui.packages.x86_64-linux.default
-
             ];
           }
           # inputs.mangowc.nixosModules.mango
