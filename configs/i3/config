@@ -15,6 +15,3 @@ exec --no-startup-id dunst
 exec --no-startup-id upower-notify
 exec --no-startup-id polybar
 exec --no-startup-id sxhkd
-
-
-bindsym super + space "rofi -modi drun,run -show drun"
