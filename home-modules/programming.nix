@@ -9,6 +9,7 @@
     gopls
     harper
     vtsls
+    haskell-language-server
 
     # Compilers
     jdk25

@@ -85,9 +85,10 @@ vim.pack.add {
   },
   "https://github.com/nvim-lua/plenary.nvim",
   "https://github.com/MunifTanjim/nui.nvim",
-  "https://github.com/nvim-telescope/telescope.nvim",
   "https://github.com/m00qek/baleia.nvim",
   "https://github.com/esmuellert/codediff.nvim",
+  'https://github.com/nvim-tree/nvim-web-devicons',
+  'https://github.com/nvim-lualine/lualine.nvim'
 }
 
 require('mini.surround').setup()
@@ -100,6 +101,7 @@ require('toggleterm').setup()
 require('gitsigns').setup()
 require('remote-nvim').setup()
 require 'treesitter-context'.setup { enable = true }
+require('lualine').setup()
 local cmp = require('blink.cmp')
 cmp.setup({
   fuzzy = { implementation = 'lua' },

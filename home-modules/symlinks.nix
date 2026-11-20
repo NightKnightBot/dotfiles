@@ -26,6 +26,7 @@ let
     picom = "picom";
     oxwm = "oxwm";
     quickshell = "quickshell";
+    xmonad = "xmonad";
   };
 in
 {

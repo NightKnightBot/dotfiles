@@ -50,7 +50,6 @@
       autoRepeatInterval = 35;
 
       windowManager = {
-        # oxwm.enable = true;
         i3 = {
           enable = true;
           extraPackages = with pkgs; [
@@ -64,6 +63,10 @@
             ueberzugpp
           ];
         };
+        # xmonad = {
+        #   enable = true;
+        #   enableContribAndExtras = true;
+        # };
       };
       videoDrivers = [ "modesetting" ];
     };

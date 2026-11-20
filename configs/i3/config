@@ -4,7 +4,7 @@ font pango:JetBrainsMono Nerd Font Mono 8
 
 exec --no-startup-id dex --autostart --environment i3
 
-exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork -e -i $HOME/dots/walls/computer.png
+exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork -e -i $HOME/dots/walls/blue-dunes.png
 exec --no-startup-id xset s 300 5
 
 exec --no-startup-id nm-applet
@@ -15,3 +15,5 @@ exec --no-startup-id dunst
 exec --no-startup-id upower-notify
 exec --no-startup-id polybar
 exec --no-startup-id sxhkd
+
+include $HOME/.config/i3/keybinds

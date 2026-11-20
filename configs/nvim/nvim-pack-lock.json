@@ -49,6 +49,10 @@
       "rev": "6a3ddecf60e19f164390308f502e67f3199f58e8",
       "src": "https://github.com/neovim/nvim-lspconfig"
     },
+    "lualine.nvim": {
+      "rev": "221ce6b2d999187044529f49da6554a92f740a96",
+      "src": "https://github.com/nvim-lualine/lualine.nvim"
+    },
     "markview": {
       "rev": "a6dbc5a4a4828b474c81fbcec11546cbd9000e3b",
       "src": "https://github.com/OXY2DEV/markview.nvim"
@@ -64,6 +68,10 @@
     "nui.nvim": {
       "rev": "10fc361835c856ba4233ef5ea135b919bf3dce97",
       "src": "https://github.com/MunifTanjim/nui.nvim"
+    },
+    "nvim-web-devicons": {
+      "rev": "0dc0cfb0c6858041174a53c7aa4adaf65e994b3c",
+      "src": "https://github.com/nvim-tree/nvim-web-devicons"
     },
     "oil": {
       "rev": "d3733d933833a0e59b813ecec99341527adf0c28",
